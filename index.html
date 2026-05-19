@@ -3,32 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#ff8fb3">
+  <meta name="theme-color" content="#111111">
   <title>426 SHOP</title>
 
   <style>
     :root{
-      --bg1:#fff7fb;
-      --bg2:#fff0f7;
-      --card:#ffffff;
-      --card2:rgba(255,255,255,.78);
-      --text:#342636;
-      --muted:#8d7c88;
-      --line:#f2d7e4;
-      --main:#ff8fb3;
-      --main2:#ff6f9f;
-      --deep:#b84f76;
-      --soft:#fff0f6;
-      --good:#34a56f;
-      --bad:#d85b6b;
-      --warn:#d6912f;
-      --shadow:0 18px 48px rgba(184,79,118,.16);
-      --shadow2:0 10px 28px rgba(184,79,118,.12);
-      --radius:26px;
+      --bg:#f6f4ef;
+      --surface:#ffffff;
+      --surface2:#f9f7f2;
+      --black:#111111;
+      --text:#1f1f1f;
+      --muted:#77736b;
+      --line:#e6e0d7;
+      --gold:#b98b3f;
+      --gold2:#d8b36b;
+      --danger:#c94b4b;
+      --success:#2f8b57;
+      --radius:24px;
+      --shadow:0 18px 50px rgba(20,20,20,.10);
+      --shadow2:0 8px 24px rgba(20,20,20,.08);
     }
 
-    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-    html{scroll-behavior:smooth}
+    *{
+      box-sizing:border-box;
+      -webkit-tap-highlight-color:transparent;
+    }
 
     body{
       margin:0;
@@ -36,40 +35,10 @@
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top left,rgba(255,143,179,.32),transparent 34%),
-        radial-gradient(circle at top right,rgba(255,215,231,.75),transparent 30%),
-        linear-gradient(180deg,var(--bg1),#fff 48%,var(--bg2));
+        radial-gradient(circle at 15% -8%,rgba(216,179,107,.28),transparent 30%),
+        radial-gradient(circle at 90% 8%,rgba(17,17,17,.08),transparent 28%),
+        linear-gradient(180deg,#fbfaf7 0%,var(--bg) 48%,#efe9de 100%);
       overflow-x:hidden;
-    }
-
-    body::before,
-    body::after{
-      content:"";
-      position:fixed;
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      background:rgba(255,143,179,.16);
-      filter:blur(4px);
-      z-index:-1;
-      animation:floatBlob 8s ease-in-out infinite;
-    }
-
-    body::before{
-      left:-90px;
-      top:90px;
-    }
-
-    body::after{
-      right:-100px;
-      bottom:120px;
-      animation-delay:1.6s;
-      background:rgba(255,195,216,.22);
-    }
-
-    @keyframes floatBlob{
-      0%,100%{transform:translateY(0) scale(1)}
-      50%{transform:translateY(-22px) scale(1.08)}
     }
 
     button,input{
@@ -77,255 +46,332 @@
     }
 
     button{
+      border:0;
       cursor:pointer;
       transition:.18s ease;
     }
 
     button:active{
-      transform:scale(.96);
+      transform:scale(.97);
     }
 
     .app{
+      width:100%;
       max-width:560px;
-      min-height:100vh;
       margin:0 auto;
-      padding:14px 14px 104px;
+      min-height:100vh;
+      padding:14px 14px 112px;
     }
 
     .top{
       position:sticky;
       top:0;
-      z-index:20;
-      padding:10px 0 12px;
-      background:linear-gradient(180deg,rgba(255,247,251,.96),rgba(255,247,251,.82));
-      backdrop-filter:blur(18px);
+      z-index:30;
+      padding:8px 0 12px;
+      background:linear-gradient(180deg,rgba(246,244,239,.94),rgba(246,244,239,.76));
+      backdrop-filter:blur(20px);
+    }
+
+    .brandBar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logoMark{
+      width:42px;
+      height:42px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:linear-gradient(145deg,#111,#373737);
+      box-shadow:0 10px 24px rgba(0,0,0,.18);
+      font-size:17px;
+      font-weight:1000;
+      letter-spacing:.3px;
+    }
+
+    .logoText b{
+      display:block;
+      color:var(--black);
+      font-size:18px;
+      line-height:1.1;
+      letter-spacing:.2px;
+    }
+
+    .logoText span{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      font-weight:800;
+      margin-top:2px;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+    }
+
+    .cartMini{
+      min-width:82px;
+      padding:11px 13px;
+      border-radius:999px;
+      color:#fff;
+      background:var(--black);
+      box-shadow:0 12px 26px rgba(0,0,0,.18);
+      font-weight:1000;
+      font-size:13px;
+    }
+
+    .cartMini span{
+      display:inline-grid;
+      place-items:center;
+      min-width:23px;
+      height:23px;
+      margin-left:4px;
+      padding:0 7px;
+      border-radius:999px;
+      color:var(--black);
+      background:linear-gradient(135deg,var(--gold2),#fff0c8);
+      font-size:12px;
     }
 
     .hero{
       position:relative;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.72);
-      border-radius:30px;
-      padding:18px;
-      min-height:132px;
+      min-height:210px;
+      padding:22px 18px;
+      border-radius:32px;
+      color:#fff;
       background:
-        linear-gradient(135deg,rgba(255,255,255,.92),rgba(255,240,246,.82)),
-        radial-gradient(circle at 85% 20%,rgba(255,143,179,.35),transparent 30%);
+        linear-gradient(135deg,rgba(17,17,17,.96),rgba(44,42,38,.96)),
+        radial-gradient(circle at 85% 10%,rgba(216,179,107,.42),transparent 35%);
       box-shadow:var(--shadow);
     }
 
-    .hero::after{
+    .hero:before{
       content:"";
       position:absolute;
-      width:140px;
-      height:140px;
-      right:-42px;
-      top:-40px;
+      width:190px;
+      height:190px;
+      right:-75px;
+      top:-70px;
       border-radius:50%;
-      background:rgba(255,143,179,.26);
+      background:radial-gradient(circle,rgba(216,179,107,.50),rgba(216,179,107,0) 68%);
     }
 
-    .heroRow{
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
+        linear-gradient(180deg,rgba(255,255,255,.04) 1px,transparent 1px);
+      background-size:28px 28px;
+      opacity:.22;
+      pointer-events:none;
+    }
+
+    .heroContent{
       position:relative;
-      z-index:1;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
+      z-index:2;
     }
 
-    .brandBadge{
+    .badge{
       display:inline-flex;
       align-items:center;
-      gap:7px;
-      padding:7px 10px;
+      gap:8px;
+      padding:8px 12px;
       border-radius:999px;
-      background:#fff;
-      color:var(--deep);
-      border:1px solid var(--line);
+      color:#fff1d0;
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.16);
       font-size:12px;
       font-weight:900;
-      box-shadow:0 6px 18px rgba(184,79,118,.08);
-      margin-bottom:10px;
+      backdrop-filter:blur(10px);
     }
 
     .dot{
       width:8px;
       height:8px;
       border-radius:50%;
-      background:var(--good);
-      box-shadow:0 0 0 5px rgba(52,165,111,.12);
+      background:var(--gold2);
+      box-shadow:0 0 0 5px rgba(216,179,107,.16);
     }
 
-    .brand h1{
-      margin:0;
-      color:var(--deep);
-      font-size:27px;
-      letter-spacing:.2px;
-      line-height:1;
-    }
-
-    .brand p{
-      margin:8px 0 0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.45;
-    }
-
-    .cartBtn{
-      position:relative;
-      min-width:94px;
-      border:0;
-      border-radius:999px;
-      background:linear-gradient(135deg,var(--main),var(--main2));
+    h1{
+      margin:18px 0 0;
+      font-size:34px;
+      line-height:.95;
+      letter-spacing:-.8px;
       color:#fff;
-      padding:11px 14px;
-      font-weight:1000;
-      box-shadow:0 12px 26px rgba(255,111,159,.28);
     }
 
-    .cartBtn .count{
-      display:inline-grid;
-      place-items:center;
-      min-width:22px;
-      height:22px;
+    .hero p{
+      width:80%;
+      margin:12px 0 0;
+      color:#d9d2c7;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .heroActions{
+      display:flex;
+      gap:9px;
+      margin-top:18px;
+    }
+
+    .heroBtn{
+      padding:12px 15px;
       border-radius:999px;
-      background:#fff;
-      color:var(--deep);
-      margin-left:5px;
-      padding:0 6px;
-      font-size:12px;
+      font-size:13px;
+      font-weight:1000;
     }
 
-    .miniStats{
-      position:relative;
-      z-index:1;
+    .heroBtn.primary{
+      color:#111;
+      background:linear-gradient(135deg,var(--gold2),#fff0c8);
+    }
+
+    .heroBtn.secondary{
+      color:#fff;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .metricRow{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:8px;
-      margin-top:15px;
+      gap:9px;
+      margin-top:12px;
     }
 
-    .miniStat{
-      border:1px solid rgba(242,215,228,.88);
-      background:rgba(255,255,255,.78);
-      border-radius:18px;
-      padding:9px 8px;
+    .metric{
+      padding:13px 10px;
+      border-radius:22px;
+      background:rgba(255,255,255,.84);
+      border:1px solid rgba(230,224,215,.88);
+      box-shadow:var(--shadow2);
       text-align:center;
-      box-shadow:0 8px 18px rgba(184,79,118,.06);
     }
 
-    .miniStat b{
+    .metric b{
       display:block;
-      color:var(--deep);
-      font-size:14px;
+      color:var(--black);
+      font-size:16px;
       line-height:1.1;
     }
 
-    .miniStat span{
+    .metric span{
       display:block;
+      margin-top:4px;
       color:var(--muted);
       font-size:11px;
-      margin-top:3px;
-    }
-
-    .searchPanel{
-      display:grid;
-      gap:10px;
-      margin-top:12px;
+      font-weight:900;
     }
 
     .searchWrap{
       position:relative;
-    }
-
-    .searchIcon{
-      position:absolute;
-      left:14px;
-      top:50%;
-      transform:translateY(-50%);
-      color:var(--muted);
-      font-size:17px;
-      pointer-events:none;
+      margin-top:12px;
     }
 
     .searchWrap input{
       width:100%;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.92);
+      height:52px;
+      padding:0 46px 0 45px;
       border-radius:999px;
+      border:1px solid var(--line);
       outline:none;
-      padding:14px 44px 14px 40px;
       color:var(--text);
-      box-shadow:0 8px 20px rgba(184,79,118,.07);
+      background:rgba(255,255,255,.92);
+      box-shadow:0 10px 24px rgba(20,20,20,.06);
     }
 
     .searchWrap input:focus{
-      border-color:rgba(255,111,159,.9);
-      box-shadow:0 0 0 4px rgba(255,143,179,.16);
+      border-color:var(--gold);
+      box-shadow:0 0 0 4px rgba(185,139,63,.13);
+    }
+
+    .searchIcon{
+      position:absolute;
+      left:17px;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--muted);
+      font-weight:1000;
     }
 
     .clearSearch{
+      display:none;
       position:absolute;
-      right:8px;
+      right:9px;
       top:50%;
       transform:translateY(-50%);
-      width:32px;
-      height:32px;
-      border:0;
+      width:34px;
+      height:34px;
       border-radius:50%;
-      background:var(--soft);
-      color:var(--deep);
+      color:var(--black);
+      background:var(--surface2);
+      font-size:19px;
       font-weight:1000;
-      display:none;
     }
 
     .tabs{
       display:flex;
-      gap:8px;
+      gap:9px;
       overflow:auto;
-      padding:2px 1px 5px;
       scrollbar-width:none;
+      padding:11px 1px 3px;
     }
 
-    .tabs::-webkit-scrollbar{display:none}
+    .tabs::-webkit-scrollbar{
+      display:none;
+    }
 
     .tab{
       flex:0 0 auto;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.88);
-      color:var(--deep);
+      padding:10px 14px;
       border-radius:999px;
-      padding:10px 13px;
+      color:var(--muted);
+      background:rgba(255,255,255,.82);
+      border:1px solid var(--line);
       font-size:13px;
       font-weight:1000;
-      box-shadow:0 8px 16px rgba(184,79,118,.06);
+      box-shadow:0 7px 16px rgba(20,20,20,.04);
     }
 
     .tab.active{
-      border-color:transparent;
       color:#fff;
-      background:linear-gradient(135deg,var(--main),var(--main2));
-      box-shadow:0 10px 22px rgba(255,111,159,.24);
+      background:var(--black);
+      border-color:var(--black);
+      box-shadow:0 10px 22px rgba(0,0,0,.15);
     }
 
     .sectionTitle{
       display:flex;
-      align-items:center;
+      align-items:flex-end;
       justify-content:space-between;
-      margin:14px 2px 10px;
-      color:var(--deep);
+      gap:12px;
+      margin:16px 2px 11px;
     }
 
     .sectionTitle h2{
       margin:0;
-      font-size:18px;
+      color:var(--black);
+      font-size:20px;
+      letter-spacing:-.2px;
     }
 
     .sectionTitle span{
       color:var(--muted);
       font-size:12px;
-      font-weight:800;
+      font-weight:900;
     }
 
     .grid{
@@ -337,89 +383,81 @@
     .card{
       position:relative;
       overflow:hidden;
-      background:rgba(255,255,255,.92);
-      border:1px solid rgba(242,215,228,.95);
-      border-radius:var(--radius);
       padding:10px;
+      border-radius:28px;
+      background:rgba(255,255,255,.94);
+      border:1px solid rgba(230,224,215,.9);
       box-shadow:var(--shadow2);
-      animation:popIn .34s ease both;
+      animation:fadeUp .28s ease both;
     }
 
-    @keyframes popIn{
-      from{opacity:0;transform:translateY(12px) scale(.98)}
-      to{opacity:1;transform:translateY(0) scale(1)}
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:linear-gradient(135deg,rgba(255,255,255,.65),transparent 40%);
-    }
-
-    .imgWrap{
+    .productImage{
       position:relative;
-      height:145px;
-      border-radius:22px;
+      height:156px;
       overflow:hidden;
+      border-radius:23px;
       background:
-        radial-gradient(circle at 30% 20%,rgba(255,255,255,.88),transparent 34%),
-        linear-gradient(135deg,#fff0f7,#ffe1ee);
-      border:1px solid #f6d3e2;
+        radial-gradient(circle at 30% 18%,#fff,transparent 36%),
+        linear-gradient(145deg,#f8f5ef,#eee7dc);
+      border:1px solid #eee7dc;
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
-    .imgWrap img{
+    .productImage img{
       width:100%;
       height:100%;
       object-fit:contain;
-      border-radius:18px;
-      padding:5px;
-      transition:.25s ease;
+      padding:7px;
+      mix-blend-mode:multiply;
     }
 
-    .card:hover .imgWrap img{
-      transform:scale(1.04);
-    }
-
-    .pill{
+    .tag{
       position:absolute;
-      left:8px;
-      top:8px;
+      left:9px;
+      top:9px;
+      z-index:3;
+      padding:6px 9px;
       border-radius:999px;
-      padding:5px 8px;
-      background:rgba(255,255,255,.92);
-      color:var(--deep);
-      border:1px solid rgba(242,215,228,.86);
+      color:#111;
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(230,224,215,.9);
+      backdrop-filter:blur(12px);
       font-size:10px;
       font-weight:1000;
-      box-shadow:0 6px 16px rgba(184,79,118,.08);
     }
 
-    .name{
-      position:relative;
-      margin:10px 0 0;
-      min-height:38px;
+    .productName{
+      margin-top:10px;
+      min-height:39px;
+      color:var(--black);
       text-align:center;
       font-size:14px;
-      line-height:1.35;
       font-weight:1000;
-      color:var(--text);
+      line-height:1.35;
       display:-webkit-box;
       -webkit-line-clamp:2;
       -webkit-box-orient:vertical;
       overflow:hidden;
     }
 
-    .detail{
-      position:relative;
+    .productDesc{
       min-height:32px;
-      margin:5px 0 0;
-      text-align:center;
+      margin-top:5px;
       color:var(--muted);
+      text-align:center;
       font-size:11px;
       line-height:1.45;
       display:-webkit-box;
@@ -429,103 +467,103 @@
     }
 
     .price{
-      position:relative;
-      margin-top:8px;
+      margin-top:9px;
+      color:var(--black);
       text-align:center;
-      color:var(--deep);
-      font-size:15px;
+      font-size:17px;
       font-weight:1000;
+      letter-spacing:-.2px;
     }
 
-    .stockLine{
-      position:relative;
+    .stock{
       display:flex;
-      align-items:center;
       justify-content:center;
-      gap:5px;
+      align-items:center;
+      gap:6px;
       margin-top:7px;
       color:var(--muted);
       font-size:11px;
       font-weight:900;
     }
 
-    .stockDot{
+    .stock i{
       width:7px;
       height:7px;
       border-radius:50%;
-      background:var(--good);
+      background:var(--success);
     }
 
-    .stockDot.out{
-      background:var(--bad);
+    .stock i.out{
+      background:var(--danger);
     }
 
     .buy{
-      position:relative;
       width:100%;
-      border:0;
+      margin-top:10px;
+      padding:12px 8px;
       border-radius:999px;
-      margin-top:9px;
-      padding:11px 8px;
       color:#fff;
-      background:linear-gradient(135deg,var(--main),var(--main2));
+      background:var(--black);
       font-size:13px;
       font-weight:1000;
-      box-shadow:0 10px 20px rgba(255,111,159,.23);
+      box-shadow:0 11px 22px rgba(0,0,0,.14);
     }
 
     .buy:disabled{
-      background:#eee3e8;
-      color:#9d8b94;
+      color:#948d82;
+      background:#e7e1d8;
       box-shadow:none;
       cursor:not-allowed;
     }
 
-    .floatingCart{
+    .bottomNav{
       position:fixed;
       left:0;
       right:0;
       bottom:0;
-      z-index:40;
+      z-index:60;
       padding:10px 14px calc(10px + env(safe-area-inset-bottom));
-      background:rgba(255,255,255,.78);
-      backdrop-filter:blur(18px);
-      border-top:1px solid rgba(242,215,228,.92);
+      background:rgba(246,244,239,.78);
+      backdrop-filter:blur(22px);
+      border-top:1px solid rgba(230,224,215,.92);
     }
 
-    .floatingInner{
+    .bottomInner{
       max-width:560px;
       margin:0 auto;
       display:grid;
-      grid-template-columns:1fr 1.25fr;
+      grid-template-columns:1fr 1.35fr;
       gap:10px;
     }
 
     .navBtn{
-      border:1px solid var(--line);
+      min-height:52px;
       border-radius:999px;
-      padding:14px 12px;
-      background:#fff;
-      color:var(--deep);
       font-weight:1000;
-      box-shadow:0 9px 22px rgba(184,79,118,.1);
+      font-size:14px;
     }
 
-    .navBtn.primary{
-      border:0;
+    .navBtn.light{
+      color:var(--black);
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      box-shadow:0 8px 20px rgba(20,20,20,.06);
+    }
+
+    .navBtn.dark{
       color:#fff;
-      background:linear-gradient(135deg,var(--main),var(--main2));
-      box-shadow:0 12px 28px rgba(255,111,159,.26);
+      background:var(--black);
+      box-shadow:0 14px 30px rgba(0,0,0,.18);
     }
 
     .modal{
+      display:none;
       position:fixed;
       inset:0;
       z-index:100;
-      display:none;
       align-items:flex-end;
-      background:rgba(45,29,39,.34);
-      backdrop-filter:blur(4px);
+      background:rgba(0,0,0,.42);
+      backdrop-filter:blur(6px);
     }
 
     .modal.show{
@@ -536,255 +574,270 @@
       width:100%;
       max-width:560px;
       max-height:88vh;
-      margin:0 auto;
       overflow:auto;
-      border-radius:30px 30px 0 0;
+      margin:0 auto;
       padding:16px 16px calc(18px + env(safe-area-inset-bottom));
-      background:
-        radial-gradient(circle at top right,rgba(255,143,179,.18),transparent 28%),
-        #fff;
-      box-shadow:0 -24px 60px rgba(30,18,25,.22);
+      border-radius:32px 32px 0 0;
+      background:linear-gradient(180deg,#fff,#f8f5ef);
+      box-shadow:0 -28px 70px rgba(0,0,0,.24);
       animation:sheetUp .22s ease both;
     }
 
     @keyframes sheetUp{
-      from{transform:translateY(20px);opacity:.7}
-      to{transform:translateY(0);opacity:1}
+      from{
+        opacity:.75;
+        transform:translateY(28px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
-    .sheetHandle{
+    .handle{
       width:48px;
       height:5px;
+      margin:0 auto 14px;
       border-radius:999px;
-      background:#ead1dd;
-      margin:0 auto 12px;
+      background:#d7cec1;
     }
 
     .sheetHead{
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
       gap:12px;
       margin-bottom:12px;
     }
 
     .sheetHead h2{
       margin:0;
-      color:var(--deep);
-      font-size:20px;
-      line-height:1.2;
+      color:var(--black);
+      font-size:21px;
+      letter-spacing:-.3px;
     }
 
     .x{
-      width:38px;
-      height:38px;
-      border:0;
+      width:40px;
+      height:40px;
       border-radius:50%;
-      background:var(--soft);
-      color:var(--deep);
-      font-size:22px;
+      color:var(--black);
+      background:#eee9df;
+      font-size:23px;
       font-weight:1000;
     }
 
-    .row{
-      border:1px solid var(--line);
-      border-radius:22px;
-      background:rgba(255,255,255,.88);
-      padding:12px;
+    .notice{
       margin:10px 0;
-      box-shadow:0 8px 22px rgba(184,79,118,.07);
+      padding:14px;
+      border-radius:22px;
+      color:#504a42;
+      background:#f4efe6;
+      border:1px solid #e7ddcf;
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    .notice.good{
+      color:#236342;
+      background:#edf8f1;
+      border-color:#cfebda;
+    }
+
+    .notice.warn{
+      color:#8a5a17;
+      background:#fff7e8;
+      border-color:#ead5ad;
+    }
+
+    .row{
+      margin:10px 0;
+      padding:13px;
+      border-radius:23px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:0 8px 20px rgba(20,20,20,.05);
     }
 
     .rowTop{
       display:flex;
       justify-content:space-between;
-      align-items:flex-start;
-      gap:10px;
+      gap:12px;
     }
 
     .rowName{
+      color:var(--black);
       font-size:14px;
       font-weight:1000;
-      line-height:1.4;
+      line-height:1.45;
     }
 
     .rowMeta{
+      margin-top:4px;
       color:var(--muted);
       font-size:12px;
-      margin-top:4px;
-      line-height:1.45;
+      line-height:1.5;
     }
 
     .qty{
       display:flex;
       align-items:center;
       gap:8px;
-      margin-top:10px;
+      margin-top:11px;
     }
 
     .qty button{
-      min-width:34px;
-      height:34px;
-      border:1px solid var(--line);
+      min-width:36px;
+      height:36px;
       border-radius:999px;
-      background:#fff;
-      color:var(--deep);
+      color:var(--black);
+      background:#f4efe6;
       font-weight:1000;
     }
 
     .qty .remove{
       margin-left:auto;
-      padding:0 13px;
-      color:var(--bad);
+      padding:0 14px;
+      color:var(--danger);
+      background:#fff0ee;
     }
 
-    .form{
-      display:grid;
-      gap:10px;
-      margin-top:12px;
+    .total{
+      margin:12px 0;
+      padding:17px 14px;
+      border-radius:25px;
+      color:#111;
+      background:
+        linear-gradient(135deg,rgba(216,179,107,.28),rgba(255,255,255,.85)),
+        #fff;
+      border:1px solid #e8d8b7;
+      text-align:center;
+      font-size:24px;
+      font-weight:1000;
+      letter-spacing:-.4px;
+    }
+
+    .bigBtn{
+      width:100%;
+      min-height:50px;
+      margin-top:9px;
+      border-radius:999px;
+      color:#fff;
+      background:var(--black);
+      font-weight:1000;
+      box-shadow:0 12px 26px rgba(0,0,0,.16);
+    }
+
+    .bigBtn.gold{
+      color:#111;
+      background:linear-gradient(135deg,var(--gold2),#fff0c8);
+    }
+
+    .bigBtn.light{
+      color:var(--black);
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:0 8px 18px rgba(20,20,20,.05);
+    }
+
+    .bigBtn.danger{
+      color:var(--danger);
+      background:#fff;
+      border:1px solid #efd3d3;
+      box-shadow:none;
+    }
+
+    .bigBtn:disabled{
+      color:#948d82;
+      background:#e7e1d8;
+      box-shadow:none;
     }
 
     .form input{
       width:100%;
-      border:1px solid var(--line);
+      height:52px;
+      margin-top:9px;
+      padding:0 14px;
       border-radius:18px;
+      border:1px solid var(--line);
       outline:none;
       background:#fff;
-      padding:14px 13px;
       color:var(--text);
     }
 
     .form input:focus{
-      border-color:var(--main);
-      box-shadow:0 0 0 4px rgba(255,143,179,.14);
-    }
-
-    .notice{
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:13px;
-      margin:10px 0;
-      background:var(--soft);
-      color:var(--deep);
-      font-size:13px;
-      line-height:1.6;
-    }
-
-    .notice.good{
-      color:#21754f;
-      background:#effbf5;
-      border-color:#cceedd;
-    }
-
-    .notice.warn{
-      color:#9a651d;
-      background:#fff8ec;
-      border-color:#f5ddb7;
-    }
-
-    .bigTotal{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:16px 14px;
-      margin:12px 0;
-      text-align:center;
-      background:linear-gradient(135deg,#fff0f7,#fff);
-      color:var(--deep);
-      font-size:22px;
-      font-weight:1000;
-    }
-
-    .copyBtn{
-      width:100%;
-      border:0;
-      border-radius:999px;
-      margin-top:9px;
-      padding:13px;
-      color:#fff;
-      background:linear-gradient(135deg,var(--deep),var(--main2));
-      font-weight:1000;
-      box-shadow:0 10px 22px rgba(184,79,118,.22);
-    }
-
-    .copyBtn.light{
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--deep);
-      box-shadow:0 8px 18px rgba(184,79,118,.08);
-    }
-
-    .copyBtn.danger{
-      border:1px solid #f2ccd4;
-      background:#fff;
-      color:var(--bad);
-      box-shadow:none;
+      border-color:var(--gold);
+      box-shadow:0 0 0 4px rgba(185,139,63,.13);
     }
 
     .codeBox{
       white-space:pre-wrap;
       word-break:break-word;
-      border:1px dashed #edbfd3;
-      border-radius:20px;
-      background:#fff;
-      padding:13px;
-      margin-top:9px;
+      margin-top:10px;
+      padding:14px;
+      border-radius:18px;
+      color:#222;
+      background:#f8f5ef;
+      border:1px dashed #cbb890;
       font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-      color:#3e3140;
       font-size:13px;
       line-height:1.55;
     }
 
-    .loading{
-      text-align:center;
+    .empty{
+      grid-column:1/-1;
+      padding:34px 18px;
+      border-radius:28px;
       color:var(--muted);
-      padding:34px 0;
+      background:rgba(255,255,255,.86);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow2);
+      text-align:center;
+      font-weight:900;
+      line-height:1.6;
+    }
+
+    .loading{
+      padding:32px 0;
+      color:var(--muted);
+      text-align:center;
       font-weight:1000;
     }
 
     .spinner{
-      width:34px;
-      height:34px;
+      width:36px;
+      height:36px;
+      margin:0 auto 13px;
       border-radius:50%;
-      border:4px solid #f6d8e5;
-      border-top-color:var(--main2);
-      margin:0 auto 12px;
-      animation:spin .8s linear infinite;
+      border:4px solid #e9e1d6;
+      border-top-color:var(--black);
+      animation:spin .85s linear infinite;
     }
 
-    @keyframes spin{to{transform:rotate(360deg)}}
-
-    .empty{
-      grid-column:1/-1;
-      border:1px solid var(--line);
-      border-radius:26px;
-      background:rgba(255,255,255,.88);
-      padding:30px 16px;
-      color:var(--muted);
-      text-align:center;
-      font-weight:900;
-      box-shadow:var(--shadow2);
+    @keyframes spin{
+      to{
+        transform:rotate(360deg);
+      }
     }
 
     .toast{
       position:fixed;
       left:50%;
-      bottom:92px;
+      bottom:96px;
       z-index:999;
-      transform:translateX(-50%) translateY(10px);
-      opacity:0;
-      pointer-events:none;
+      max-width:86vw;
+      padding:12px 16px;
       border-radius:999px;
-      padding:11px 15px;
-      background:#342636;
       color:#fff;
+      background:#111;
+      box-shadow:0 14px 34px rgba(0,0,0,.25);
+      text-align:center;
       font-size:13px;
       font-weight:1000;
-      box-shadow:0 12px 34px rgba(0,0,0,.18);
+      transform:translateX(-50%) translateY(12px);
+      opacity:0;
+      pointer-events:none;
       transition:.2s ease;
-      max-width:86vw;
-      text-align:center;
     }
 
     .toast.show{
@@ -793,13 +846,26 @@
     }
 
     @media(max-width:370px){
-      .app{padding-left:10px;padding-right:10px}
-      .grid{gap:10px}
-      .imgWrap{height:128px}
-      .brand h1{font-size:24px}
-      .hero{padding:15px}
-      .miniStats{grid-template-columns:1fr 1fr}
-      .miniStats .miniStat:last-child{grid-column:1/-1}
+      .app{
+        padding-left:10px;
+        padding-right:10px;
+      }
+
+      .grid{
+        gap:10px;
+      }
+
+      .productImage{
+        height:138px;
+      }
+
+      h1{
+        font-size:30px;
+      }
+
+      .hero{
+        padding:19px 15px;
+      }
     }
   </style>
 </head>
@@ -807,56 +873,64 @@
 <body>
   <div class="app">
     <div class="top">
-      <section class="hero">
-        <div class="heroRow">
-          <div class="brand">
-            <div class="brandBadge">
-              <span class="dot"></span>
-              เปิดรับออเดอร์
-            </div>
-            <h1>426 SHOP</h1>
-            <p>เลือกสินค้า ชำระเงิน แล้วรับสินค้าทางเว็บได้ทันทีหลังแอดมินยืนยัน</p>
+      <div class="brandBar">
+        <div class="logo">
+          <div class="logoMark">426</div>
+          <div class="logoText">
+            <b>426 SHOP</b>
+            <span>Premium Digital Store</span>
           </div>
-
-          <button class="cartBtn" onclick="openCart()">
-            ตะกร้า <span class="count" id="cartCount">0</span>
-          </button>
         </div>
 
-        <div class="miniStats">
-          <div class="miniStat">
-            <b id="statProducts">0</b>
-            <span>สินค้า</span>
-          </div>
-          <div class="miniStat">
-            <b id="statReady">0</b>
-            <span>พร้อมส่ง</span>
-          </div>
-          <div class="miniStat">
-            <b>WEB</b>
-            <span>รับสินค้า</span>
+        <button class="cartMini" onclick="openCart()">
+          ตะกร้า <span id="cartCount">0</span>
+        </button>
+      </div>
+
+      <section class="hero">
+        <div class="heroContent">
+          <div class="badge"><i class="dot"></i> Online Store พร้อมใช้งาน</div>
+          <h1>เลือกสินค้า<br>รับทันทีบนเว็บ</h1>
+          <p>ประสบการณ์สั่งซื้อแบบเรียบหรู รวดเร็ว และใช้งานง่ายเหมือนร้านแบรนด์ใหญ่</p>
+
+          <div class="heroActions">
+            <button class="heroBtn primary" onclick="scrollToProducts()">ดูสินค้า</button>
+            <button class="heroBtn secondary" onclick="openReceive()">รับสินค้า</button>
           </div>
         </div>
       </section>
 
-      <div class="searchPanel">
-        <div class="searchWrap">
-          <span class="searchIcon">⌕</span>
-          <input id="searchInput" placeholder="ค้นหาชื่อสินค้า / รหัสสินค้า" oninput="handleSearch()">
-          <button class="clearSearch" id="clearSearch" onclick="clearSearch()">×</button>
+      <div class="metricRow">
+        <div class="metric">
+          <b id="statProducts">0</b>
+          <span>สินค้า</span>
         </div>
+        <div class="metric">
+          <b id="statReady">0</b>
+          <span>พร้อมขาย</span>
+        </div>
+        <div class="metric">
+          <b>FAST</b>
+          <span>ใช้งานไว</span>
+        </div>
+      </div>
 
-        <div class="tabs">
-          <button class="tab active" onclick="setFilter('all', this)">ทั้งหมด</button>
-          <button class="tab" onclick="setFilter('ready', this)">พร้อมส่ง</button>
-          <button class="tab" onclick="setFilter('promo', this)">โปรโมชัน</button>
-          <button class="tab" onclick="setFilter('option', this)">มีตัวเลือก</button>
-        </div>
+      <div class="searchWrap">
+        <span class="searchIcon">⌕</span>
+        <input id="searchInput" placeholder="ค้นหาสินค้าที่ต้องการ" oninput="handleSearch()">
+        <button class="clearSearch" id="clearSearch" onclick="clearSearch()">×</button>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" onclick="setFilter('all',this)">ทั้งหมด</button>
+        <button class="tab" onclick="setFilter('ready',this)">พร้อมขาย</button>
+        <button class="tab" onclick="setFilter('promo',this)">โปรโมชัน</button>
+        <button class="tab" onclick="setFilter('option',this)">มีตัวเลือก</button>
       </div>
     </div>
 
-    <div class="sectionTitle">
-      <h2>รายการสินค้า</h2>
+    <div class="sectionTitle" id="productsSection">
+      <h2>สินค้าแนะนำ</h2>
       <span id="resultCount">กำลังโหลด...</span>
     </div>
 
@@ -868,16 +942,16 @@
     </div>
   </div>
 
-  <div class="floatingCart">
-    <div class="floatingInner">
-      <button class="navBtn" onclick="openOrderLookup()">รับสินค้า</button>
-      <button class="navBtn primary" onclick="openCart()">ชำระเงิน <span id="bottomCartText"></span></button>
+  <div class="bottomNav">
+    <div class="bottomInner">
+      <button class="navBtn light" onclick="openReceive()">รับสินค้า</button>
+      <button class="navBtn dark" onclick="openCart()">ชำระเงิน <span id="bottomCartText"></span></button>
     </div>
   </div>
 
-  <div id="modal" class="modal" onclick="backdropClose(event)">
+  <div class="modal" id="modal" onclick="backdropClose(event)">
     <div class="sheet">
-      <div class="sheetHandle"></div>
+      <div class="handle"></div>
       <div class="sheetHead">
         <h2 id="modalTitle">ตะกร้า</h2>
         <button class="x" onclick="closeModal()">×</button>
@@ -886,149 +960,272 @@
     </div>
   </div>
 
-  <div id="toast" class="toast"></div>
+  <div class="toast" id="toast"></div>
 
 <script>
+  /************************************************************
+   * ใส่ Web App URL ของ Apps Script ตรงนี้
+   * ต้องลงท้ายด้วย /exec
+   ************************************************************/
   const API_URL = 'https://script.google.com/macros/s/AKfycbztTN5lqIKWg0AH4WrTjepTAyHGmwihefg8_rdu0t6RSgYc049wVhhgkm6wF162kcOl/exec';
 
   let products = [];
-  let currentFilter = 'all';
   let cart = loadCart();
   let lastOrder = loadLastOrder();
+  let currentFilter = 'all';
   let bankCache = {};
 
   const $ = id => document.getElementById(id);
 
-  function api(action, params = {}) {
+  function normalizeApiUrl(){
+    let url = String(API_URL || '').trim();
+
+    if (!url || url.includes('ใส่ URL')) {
+      throw new Error('ยังไม่ได้ใส่ API_URL ใน index.html');
+    }
+
+    return url.replace('/dev','/exec');
+  }
+
+  function api(action, params = {}){
     return new Promise((resolve, reject) => {
-      if (!API_URL || API_URL.includes('ใส่ URL')) {
-        reject(new Error('กรุณาใส่ URL Web App ของ Apps Script ในไฟล์ index.html ก่อน'));
+      let base;
+
+      try{
+        base = normalizeApiUrl();
+      }catch(e){
+        reject(e);
         return;
       }
 
-      const cb = 'cb_' + Date.now() + '_' + Math.floor(Math.random() * 1000000);
-      const qs = new URLSearchParams({ action, callback: cb, ...params });
-      const s = document.createElement('script');
+      const callback = 'WEB426_' + Date.now() + '_' + Math.floor(Math.random() * 1000000);
+      const q = new URLSearchParams();
 
-      window[cb] = data => {
-        delete window[cb];
-        s.remove();
-        resolve(data);
+      q.set('action', action);
+      q.set('callback', callback);
+      q.set('_', Date.now());
+
+      Object.keys(params || {}).forEach(k => {
+        if (params[k] !== undefined && params[k] !== null) q.set(k, params[k]);
+      });
+
+      let done = false;
+      let script = document.createElement('script');
+
+      const timer = setTimeout(() => {
+        if (done) return;
+        done = true;
+        cleanup();
+
+        fetchApi(base, action, params)
+          .then(resolve)
+          .catch(() => reject(new Error('เชื่อมต่อ API ไม่สำเร็จ กรุณาตรวจสอบ URL Web App /exec และ doGet JSONP')));
+      }, 9000);
+
+      function cleanup(){
+        clearTimeout(timer);
+        try{ delete window[callback]; }catch(e){ window[callback] = undefined; }
+        if (script && script.parentNode) script.parentNode.removeChild(script);
+      }
+
+      window[callback] = data => {
+        if (done) return;
+        done = true;
+        cleanup();
+        resolve(data || {});
       };
 
-      s.onerror = () => {
-        delete window[cb];
-        s.remove();
-        reject(new Error('เชื่อมต่อ API ไม่สำเร็จ'));
+      script.onerror = () => {
+        if (done) return;
+        done = true;
+        cleanup();
+
+        fetchApi(base, action, params)
+          .then(resolve)
+          .catch(() => reject(new Error('เชื่อมต่อ API ไม่สำเร็จ กรุณาตรวจสอบสิทธิ์ Deploy เป็น Anyone')));
       };
 
-      s.src = API_URL + '?' + qs.toString();
-      document.body.appendChild(s);
+      script.src = base + '?' + q.toString();
+      document.body.appendChild(script);
     });
   }
 
-  function money(n) {
+  async function fetchApi(base, action, params){
+    const q = new URLSearchParams();
+    q.set('action', action);
+    q.set('_', Date.now());
+
+    Object.keys(params || {}).forEach(k => {
+      if (params[k] !== undefined && params[k] !== null) q.set(k, params[k]);
+    });
+
+    const res = await fetch(base + '?' + q.toString(), {
+      method:'GET',
+      cache:'no-store',
+      redirect:'follow'
+    });
+
+    const text = await res.text();
+
+    try{
+      return JSON.parse(text);
+    }catch(e){
+      const m = text.match(/\(([\s\S]*)\)\s*;?\s*$/);
+      if (m) return JSON.parse(m[1]);
+      throw new Error('API ไม่ได้ส่งข้อมูล JSON');
+    }
+  }
+
+  function money(n){
     n = Number(n || 0);
-    return n.toLocaleString('th-TH', { maximumFractionDigits: 2 });
+    return n.toLocaleString('th-TH',{maximumFractionDigits:2});
   }
 
-  function loadCart() {
-    try { return JSON.parse(localStorage.getItem('426_cart') || '[]'); }
-    catch(e) { return []; }
+  function loadCart(){
+    try{return JSON.parse(localStorage.getItem('426_web_cart') || '[]')}
+    catch(e){return []}
   }
 
-  function saveCart() {
-    localStorage.setItem('426_cart', JSON.stringify(cart));
+  function saveCart(){
+    localStorage.setItem('426_web_cart', JSON.stringify(cart));
     updateCartCount();
   }
 
-  function loadLastOrder() {
-    try { return JSON.parse(localStorage.getItem('426_last_order') || '{}'); }
-    catch(e) { return {}; }
+  function loadLastOrder(){
+    try{return JSON.parse(localStorage.getItem('426_web_last_order') || '{}')}
+    catch(e){return {}}
   }
 
-  function saveLastOrder(o) {
+  function saveLastOrder(o){
     lastOrder = o || {};
-    localStorage.setItem('426_last_order', JSON.stringify(lastOrder));
+    localStorage.setItem('426_web_last_order', JSON.stringify(lastOrder));
   }
 
-  function updateCartCount() {
-    const n = cart.reduce((s, x) => s + Number(x.qty || 0), 0);
-    $('cartCount').textContent = n;
-    $('bottomCartText').textContent = n ? `(${n})` : '';
+  function sessionId(){
+    let id = localStorage.getItem('426_web_session');
+
+    if (!id){
+      id = 'WEB-' + Date.now() + '-' + Math.floor(Math.random() * 1000000);
+      localStorage.setItem('426_web_session', id);
+    }
+
+    return id;
   }
 
-  async function loadCatalog() {
+  function updateCartCount(){
+    const count = cart.reduce((s,x) => s + Number(x.qty || 0), 0);
+    $('cartCount').textContent = count;
+    $('bottomCartText').textContent = count ? '(' + count + ')' : '';
+  }
+
+  async function loadCatalog(){
     updateCartCount();
 
-    const cached = localStorage.getItem('426_catalog_cache_v2');
-    if (cached) {
-      try {
-        const c = JSON.parse(cached);
-        if (Date.now() - c.t < 90000) {
-          products = c.products || [];
+    const cache = localStorage.getItem('426_web_catalog_cache');
+
+    if (cache){
+      try{
+        const c = JSON.parse(cache);
+
+        if (Date.now() - c.t < 120000){
+          products = Array.isArray(c.products) ? c.products : [];
           bankCache = c.bank || {};
           updateStats();
           renderProducts();
         }
-      } catch(e) {}
+      }catch(e){}
     }
 
-    try {
+    try{
       const res = await api('catalog');
-      if (!res.ok) throw new Error(res.message || 'โหลดสินค้าไม่สำเร็จ');
 
-      products = res.products || [];
-      bankCache = res.bank || {};
+      if (!res || res.ok === false){
+        throw new Error((res && res.message) || 'โหลดสินค้าไม่สำเร็จ');
+      }
 
-      localStorage.setItem('426_catalog_cache_v2', JSON.stringify({
-        t: Date.now(),
+      products = normalizeProducts(res.products || res.items || res.data || []);
+      bankCache = res.bank || res.payment || {};
+
+      localStorage.setItem('426_web_catalog_cache', JSON.stringify({
+        t:Date.now(),
         products,
-        bank: bankCache
+        bank:bankCache
       }));
 
       updateStats();
       renderProducts();
 
-    } catch (e) {
-      if (!products.length) {
-        $('productGrid').innerHTML = `<div class="empty">${escapeHtml(e.message)}</div>`;
+    }catch(e){
+      if (!products.length){
+        $('productGrid').innerHTML = `
+          <div class="empty">
+            ${escapeHtml(e.message)}<br><br>
+            ตรวจสอบว่า Web App เป็นลิงก์ /exec และ Deploy เป็น Anyone
+          </div>
+        `;
         $('resultCount').textContent = 'โหลดไม่สำเร็จ';
-      } else {
+      }else{
         toast(e.message);
       }
     }
   }
 
-  function updateStats() {
+  function normalizeProducts(list){
+    return (list || []).map((p,i) => {
+      const id = String(p.id || p.productId || p.productID || p.code || p.sku || ('P' + i));
+      const price = Number(p.price || p.salePrice || p.normalPrice || 0);
+      const qty = Number(p.quantity || p.qty || p.stock || 0);
+
+      return {
+        ...p,
+        id,
+        name:String(p.name || p.productName || p.title || ''),
+        detail:String(p.detail || p.description || p.desc || ''),
+        imageUrl:String(p.imageUrl || p.image || p.img || p.picture || ''),
+        price,
+        priceText:p.priceText || ('฿' + money(price)),
+        quantity:qty,
+        saleOpenNow:p.saleOpenNow !== false && p.saleOpen !== false && p.status !== 'ปิดขาย',
+        hasOptions:!!(p.hasOptions || p.optionsCount || p.optionCount),
+        promoEligible:!!(p.promoEligible || p.promo || p.isPromo)
+      };
+    });
+  }
+
+  function updateStats(){
     const ready = products.filter(p => Number(p.quantity || 0) > 0 && p.saleOpenNow !== false).length;
+
     $('statProducts').textContent = products.length;
     $('statReady').textContent = ready;
   }
 
-  function handleSearch() {
+  function scrollToProducts(){
+    $('productsSection').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  function handleSearch(){
     $('clearSearch').style.display = $('searchInput').value.trim() ? 'block' : 'none';
     renderProducts();
   }
 
-  function clearSearch() {
+  function clearSearch(){
     $('searchInput').value = '';
     $('clearSearch').style.display = 'none';
     renderProducts();
   }
 
-  function setFilter(filter, btn) {
+  function setFilter(filter,btn){
     currentFilter = filter;
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
     btn.classList.add('active');
     renderProducts();
   }
 
-  function getFilteredProducts() {
+  function filteredProducts(){
     const q = $('searchInput').value.trim().toLowerCase();
     let list = products.slice();
 
-    if (q) {
+    if (q){
       list = list.filter(p =>
         String(p.name || '').toLowerCase().includes(q) ||
         String(p.detail || '').toLowerCase().includes(q) ||
@@ -1036,135 +1233,142 @@
       );
     }
 
-    if (currentFilter === 'ready') {
+    if (currentFilter === 'ready'){
       list = list.filter(p => Number(p.quantity || 0) > 0 && p.saleOpenNow !== false);
     }
 
-    if (currentFilter === 'promo') {
+    if (currentFilter === 'promo'){
       list = list.filter(p => p.promoEligible);
     }
 
-    if (currentFilter === 'option') {
+    if (currentFilter === 'option'){
       list = list.filter(p => p.hasOptions);
     }
 
     return list;
   }
 
-  function renderProducts() {
-    const list = getFilteredProducts();
-    $('resultCount').textContent = `${list.length} รายการ`;
+  function renderProducts(){
+    const list = filteredProducts();
 
-    if (!list.length) {
+    $('resultCount').textContent = list.length + ' รายการ';
+
+    if (!list.length){
       $('productGrid').innerHTML = `
         <div class="empty">
-          ไม่พบสินค้าที่ตรงกับการค้นหา<br>
-          ลองเปลี่ยนคำค้นหรือเลือกหมวดอื่น
+          ไม่พบสินค้า<br>
+          ลองค้นหาด้วยคำอื่น หรือเลือกหมวดทั้งหมด
         </div>
       `;
       return;
     }
 
-    $('productGrid').innerHTML = list.map((p, index) => {
+    $('productGrid').innerHTML = list.map((p,index) => {
       const qty = Number(p.quantity || 0);
       const disabled = !p.saleOpenNow || qty <= 0;
-      const btnText = p.hasOptions ? 'เลือกตัวเลือก' : 'เพิ่มลงตะกร้า';
-      const badge = p.hasOptions ? 'มีตัวเลือก' : (p.promoEligible ? 'โปรโมชัน' : 'พร้อมส่ง');
+      const badge = p.hasOptions ? 'OPTIONS' : (p.promoEligible ? 'PROMO' : 'READY');
 
       return `
-        <article class="card" style="animation-delay:${Math.min(index * 0.025, .25)}s">
-          <div class="imgWrap">
-            <span class="pill">${escapeHtml(badge)}</span>
+        <article class="card" style="animation-delay:${Math.min(index * .025,.24)}s">
+          <div class="productImage">
+            <span class="tag">${escapeHtml(badge)}</span>
             <img loading="lazy"
               src="${escapeAttr(p.imageUrl || '')}"
-              onerror="this.src='https://via.placeholder.com/420/FFEAF2/B84F76?text=426+SHOP'">
+              onerror="this.src='https://placehold.co/420x420/F4EFE6/111111?text=426+SHOP'">
           </div>
 
-          <div class="name">${escapeHtml(p.name || '')}</div>
-          <div class="detail">${escapeHtml(p.detail || 'เลือกสินค้าแล้วชำระเงินได้เลย')}</div>
+          <div class="productName">${escapeHtml(p.name)}</div>
+          <div class="productDesc">${escapeHtml(p.detail || 'เลือกสินค้าเพื่อสั่งซื้อ')}</div>
           <div class="price">${escapeHtml(p.priceText || ('฿' + money(p.price)))}</div>
 
-          <div class="stockLine">
-            <span class="stockDot ${disabled ? 'out' : ''}"></span>
+          <div class="stock">
+            <i class="${disabled ? 'out' : ''}"></i>
             <span>${disabled ? 'สินค้าหมดหรือปิดขาย' : 'คงเหลือ ' + qty}</span>
           </div>
 
           <button class="buy" ${disabled ? 'disabled' : ''} onclick="selectProduct('${escapeAttr(p.id)}')">
-            ${btnText}
+            ${p.hasOptions ? 'เลือกตัวเลือก' : 'เพิ่มลงตะกร้า'}
           </button>
         </article>
       `;
     }).join('');
   }
 
-  async function selectProduct(productId) {
-    const p = products.find(x => x.id === productId);
+  async function selectProduct(productId){
+    const p = products.find(x => String(x.id) === String(productId));
+
     if (!p) return;
 
-    if (p.hasOptions) {
+    if (p.hasOptions){
       openOptions(p);
       return;
     }
 
     addToCart({
-      productId: p.id,
-      stockProductId: p.id,
-      optionId: '',
-      name: p.name,
-      price: p.price,
-      imageUrl: p.imageUrl,
-      qty: 1
+      productId:p.id,
+      stockProductId:p.id,
+      optionId:'',
+      name:p.name,
+      price:Number(p.price || 0),
+      imageUrl:p.imageUrl || '',
+      qty:1
     });
 
-    toast('เพิ่มสินค้าในตะกร้าแล้ว');
+    toast('เพิ่มลงตะกร้าแล้ว');
   }
 
-  async function openOptions(product) {
-    openModal('เลือกตัวเลือกสินค้า', loadingHtml('กำลังโหลดตัวเลือก...'));
+  async function openOptions(product){
+    openModal('เลือกตัวเลือก', loadingHtml('กำลังโหลดตัวเลือก...'));
 
-    try {
-      const res = await api('options', { productId: product.id });
-      if (!res.ok) throw new Error(res.message || 'โหลดตัวเลือกไม่สำเร็จ');
+    try{
+      const res = await api('options',{productId:product.id});
 
-      const opts = res.options || [];
+      if (!res || res.ok === false){
+        throw new Error((res && res.message) || 'โหลดตัวเลือกไม่สำเร็จ');
+      }
 
-      if (!opts.length) {
-        $('modalBody').innerHTML = `<div class="notice warn">ยังไม่มีตัวเลือกสินค้าในรายการนี้</div>`;
+      const options = normalizeOptions(res.options || res.items || [], product);
+
+      if (!options.length){
+        $('modalBody').innerHTML = `
+          <div class="notice warn">ยังไม่มีตัวเลือกสินค้า</div>
+          <button class="bigBtn light" onclick="closeModal()">ปิด</button>
+        `;
         return;
       }
 
       $('modalBody').innerHTML = `
         <div class="notice">
-          <b>${escapeHtml(product.name || '')}</b><br>
-          เลือกตัวเลือกที่ต้องการ แล้วเพิ่มลงตะกร้า
+          <b>${escapeHtml(product.name)}</b><br>
+          เลือกตัวเลือกที่ต้องการ
         </div>
 
-        ${opts.map(o => {
+        ${options.map(o => {
           const disabled = Number(o.quantity || 0) <= 0;
           const item = {
-            productId: product.id,
-            optionId: o.optionId,
-            stockProductId: o.stockProductId,
-            name: product.name + ' - ' + o.name,
-            price: o.price,
-            imageUrl: o.imageUrl || product.imageUrl,
-            qty: 1
+            productId:product.id,
+            optionId:o.optionId,
+            stockProductId:o.stockProductId,
+            name:product.name + ' - ' + o.name,
+            price:Number(o.price || 0),
+            imageUrl:o.imageUrl || product.imageUrl || '',
+            qty:1
           };
 
           return `
             <div class="row">
               <div class="rowTop">
                 <div>
-                  <div class="rowName">${escapeHtml(o.name || '')}</div>
+                  <div class="rowName">${escapeHtml(o.name)}</div>
                   <div class="rowMeta">${escapeHtml(o.detail || '')}</div>
                   <div class="rowMeta">${disabled ? 'คงเหลือ 0' : 'คงเหลือ ' + Number(o.quantity || 0)}</div>
                 </div>
                 <b>฿${money(o.price)}</b>
               </div>
 
-              <button class="copyBtn ${disabled ? 'light' : ''}"
+              <button class="bigBtn ${disabled ? 'light' : 'gold'}"
                 ${disabled ? 'disabled' : ''}
-                onclick='addOptionToCart(${JSON.stringify(item).replace(/'/g, '&#39;')})'>
+                onclick='addOption(${JSON.stringify(item).replace(/'/g,"&#39;")})'>
                 ${disabled ? 'สินค้าหมด' : 'เพิ่มลงตะกร้า'}
               </button>
             </div>
@@ -1172,355 +1376,346 @@
         }).join('')}
       `;
 
-    } catch(e) {
-      $('modalBody').innerHTML = `<div class="notice warn">${escapeHtml(e.message)}</div>`;
+    }catch(e){
+      $('modalBody').innerHTML = `
+        <div class="notice warn">${escapeHtml(e.message)}</div>
+        <button class="bigBtn light" onclick="closeModal()">ปิด</button>
+      `;
     }
   }
 
-  function addOptionToCart(item) {
+  function normalizeOptions(list, product){
+    return (list || []).map((o,i) => {
+      const price = Number(o.price || o.salePrice || product.price || 0);
+      const qty = Number(o.quantity || o.qty || o.stock || 0);
+
+      return {
+        ...o,
+        optionId:String(o.optionId || o.id || o.optionCode || ('O' + i)),
+        stockProductId:String(o.stockProductId || o.productId || product.id),
+        name:String(o.name || o.optionName || o.title || ''),
+        detail:String(o.detail || o.description || ''),
+        imageUrl:String(o.imageUrl || o.image || product.imageUrl || ''),
+        price,
+        quantity:qty
+      };
+    });
+  }
+
+  function addOption(item){
     addToCart(item);
-    toast('เพิ่มสินค้าในตะกร้าแล้ว');
+    toast('เพิ่มลงตะกร้าแล้ว');
     openCart();
   }
 
-  function addToCart(item) {
-    const key = item.optionId || item.stockProductId || item.productId;
-    const found = cart.find(x => (x.optionId || x.stockProductId || x.productId) === key);
+  function addToCart(item){
+    const key = String(item.optionId || item.stockProductId || item.productId);
+    const found = cart.find(x => String(x.optionId || x.stockProductId || x.productId) === key);
 
-    if (found) {
+    if (found){
       found.qty = Number(found.qty || 0) + 1;
-    } else {
+    }else{
       cart.push(item);
     }
 
     saveCart();
   }
 
-  function openCart() {
-    openModal('ตะกร้าสินค้า', renderCartHtml());
+  function openCart(){
+    openModal('ตะกร้าสินค้า', cartHtml());
   }
 
-  function renderCartHtml() {
-    if (!cart.length) {
+  function cartHtml(){
+    if (!cart.length){
       return `
         <div class="notice">
-          ยังไม่มีสินค้าในตะกร้า เลือกสินค้าที่ต้องการก่อนชำระเงิน
+          ยังไม่มีสินค้าในตะกร้า<br>
+          เลือกสินค้าที่ต้องการ แล้วกดชำระเงิน
         </div>
-        <button class="copyBtn light" onclick="closeModal()">เลือกสินค้าต่อ</button>
+        <button class="bigBtn light" onclick="closeModal()">เลือกสินค้า</button>
       `;
     }
 
-    const rows = cart.map((item, i) => `
-      <div class="row">
-        <div class="rowTop">
-          <div>
-            <div class="rowName">${escapeHtml(item.name)}</div>
-            <div class="rowMeta">฿${money(item.price)} / ชิ้น</div>
-          </div>
-          <b>฿${money(Number(item.price || 0) * Number(item.qty || 0))}</b>
-        </div>
-
-        <div class="qty">
-          <button onclick="changeQty(${i}, -1)">−</button>
-          <b>${Number(item.qty || 0)}</b>
-          <button onclick="changeQty(${i}, 1)">+</button>
-          <button class="remove" onclick="removeCart(${i})">ลบ</button>
-        </div>
-      </div>
-    `).join('');
-
     return `
-      ${rows}
-      <div class="bigTotal">รวม ฿${money(cartTotal())}</div>
-      <button class="copyBtn" onclick="openCheckout()">ไปชำระเงิน</button>
-      <button class="copyBtn danger" onclick="clearCart()">ล้างตะกร้า</button>
+      ${cart.map((item,i) => `
+        <div class="row">
+          <div class="rowTop">
+            <div>
+              <div class="rowName">${escapeHtml(item.name)}</div>
+              <div class="rowMeta">฿${money(item.price)} / ชิ้น</div>
+            </div>
+            <b>฿${money(Number(item.price || 0) * Number(item.qty || 0))}</b>
+          </div>
+
+          <div class="qty">
+            <button onclick="changeQty(${i},-1)">−</button>
+            <b>${Number(item.qty || 0)}</b>
+            <button onclick="changeQty(${i},1)">+</button>
+            <button class="remove" onclick="removeItem(${i})">ลบ</button>
+          </div>
+        </div>
+      `).join('')}
+
+      <div class="total">รวม ฿${money(cartTotal())}</div>
+      <button class="bigBtn gold" onclick="checkout()">สร้างออเดอร์</button>
+      <button class="bigBtn danger" onclick="clearCart()">ล้างตะกร้า</button>
     `;
   }
 
-  function cartTotal() {
-    return cart.reduce((s, x) => s + Number(x.price || 0) * Number(x.qty || 0), 0);
+  function cartTotal(){
+    return cart.reduce((s,x) => s + Number(x.price || 0) * Number(x.qty || 0), 0);
   }
 
-  function changeQty(i, d) {
+  function changeQty(i,d){
     cart[i].qty = Number(cart[i].qty || 0) + d;
-    if (cart[i].qty <= 0) cart.splice(i, 1);
+
+    if (cart[i].qty <= 0){
+      cart.splice(i,1);
+    }
+
     saveCart();
-    $('modalBody').innerHTML = renderCartHtml();
+    $('modalBody').innerHTML = cartHtml();
   }
 
-  function removeCart(i) {
-    cart.splice(i, 1);
+  function removeItem(i){
+    cart.splice(i,1);
     saveCart();
-    $('modalBody').innerHTML = renderCartHtml();
+    $('modalBody').innerHTML = cartHtml();
   }
 
-  function clearCart() {
+  function clearCart(){
     cart = [];
     saveCart();
-    $('modalBody').innerHTML = renderCartHtml();
+    $('modalBody').innerHTML = cartHtml();
   }
 
-  function openCheckout() {
-    if (!cart.length) {
+  async function checkout(){
+    if (!cart.length){
       openCart();
       return;
     }
 
-    openModal('ข้อมูลชำระเงิน', `
-      <div class="notice">
-        กรอกข้อมูลสำหรับสร้างออเดอร์ ระบบจะใช้ข้อมูลนี้สำหรับตรวจสอบตอนรับสินค้า
-      </div>
+    openModal('สร้างออเดอร์', loadingHtml('กำลังสร้างออเดอร์...'));
 
-      <div class="form">
-        <input id="customerName" placeholder="ชื่อผู้สั่งซื้อ">
-        <input id="phone" placeholder="เบอร์โทร">
-        <input id="email" placeholder="อีเมล ถ้ามี">
-      </div>
-
-      <div class="bigTotal">ยอดรวม ฿${money(cartTotal())}</div>
-
-      <button class="copyBtn" onclick="submitCheckout()">สร้างออเดอร์</button>
-      <button class="copyBtn light" onclick="openCart()">กลับไปตะกร้า</button>
-    `);
-  }
-
-  async function submitCheckout() {
     const payload = {
-      customerName: $('customerName').value.trim(),
-      phone: $('phone').value.trim(),
-      email: $('email').value.trim(),
-      cart: cart.map(x => ({
-        productId: x.productId || '',
-        optionId: x.optionId || '',
-        stockProductId: x.stockProductId || '',
-        qty: Number(x.qty || 1)
+      channel:'WEB',
+      sessionId:sessionId(),
+      customerName:'ลูกค้าเว็บ',
+      phone:'',
+      email:'',
+      cart:cart.map(x => ({
+        productId:x.productId || '',
+        optionId:x.optionId || '',
+        stockProductId:x.stockProductId || '',
+        qty:Number(x.qty || 1)
       }))
     };
 
-    if (!payload.phone && !payload.email) {
-      toast('กรุณากรอกเบอร์โทรหรืออีเมล');
-      return;
-    }
-
-    $('modalBody').innerHTML = loadingHtml('กำลังสร้างออเดอร์...');
-
-    try {
-      const res = await api('checkout', {
-        payload: encodeURIComponent(JSON.stringify(payload))
+    try{
+      const res = await api('checkout',{
+        payload:encodeURIComponent(JSON.stringify(payload))
       });
 
-      if (!res.ok) throw new Error(res.message || 'สร้างออเดอร์ไม่สำเร็จ');
+      if (!res || res.ok === false){
+        throw new Error((res && res.message) || 'สร้างออเดอร์ไม่สำเร็จ');
+      }
 
-      saveLastOrder({
-        orderId: res.orderId,
-        auth: res.auth
-      });
+      const orderId = res.orderId || res.orderNo || res.id || '';
+      const auth = res.auth || res.token || res.receiveCode || '';
+
+      saveLastOrder({orderId,auth});
 
       cart = [];
       saveCart();
 
-      renderPayment(res);
+      renderPayment(res, orderId, auth);
 
-    } catch(e) {
+    }catch(e){
       $('modalBody').innerHTML = `
         <div class="notice warn">${escapeHtml(e.message)}</div>
-        <button class="copyBtn light" onclick="openCart()">กลับไปตะกร้า</button>
+        <button class="bigBtn light" onclick="openCart()">กลับไปตะกร้า</button>
       `;
     }
   }
 
-  function renderPayment(res) {
+  function renderPayment(res, orderId, auth){
     const bank = res.bank || bankCache || {};
+    const totalText = res.totalText || ('฿' + money(res.total || res.amount || 0));
 
     $('modalTitle').textContent = 'ชำระเงิน';
+
     $('modalBody').innerHTML = `
       <div class="notice good">
         สร้างออเดอร์สำเร็จ<br>
-        Order: <b>${escapeHtml(res.orderId)}</b><br>
-        Payment: <b>${escapeHtml(res.paymentId)}</b>
+        Order ID: <b>${escapeHtml(orderId)}</b>
       </div>
 
-      <div class="bigTotal">${escapeHtml(res.totalText || '')}</div>
+      <div class="total">${escapeHtml(totalText)}</div>
 
       <div class="row">
         <div class="rowName">บัญชีสำหรับโอนเงิน</div>
-        <div class="rowMeta">${escapeHtml(bank.bankName || '')}</div>
-        <div class="rowMeta">${escapeHtml(bank.bankAccountName || '')}</div>
-        <div style="font-size:23px;font-weight:1000;color:var(--deep);margin-top:8px">
-          ${escapeHtml(bank.bankAccountFormatted || bank.bankAccountNumber || '')}
+        <div class="rowMeta">${escapeHtml(bank.bankName || bank.name || '')}</div>
+        <div class="rowMeta">${escapeHtml(bank.bankAccountName || bank.accountName || '')}</div>
+
+        <div style="font-size:24px;font-weight:1000;color:#111;margin-top:9px;letter-spacing:.2px">
+          ${escapeHtml(bank.bankAccountFormatted || bank.bankAccountNumber || bank.account || '')}
         </div>
-        <button class="copyBtn" onclick="copyText('${escapeAttr(bank.bankAccountNumber || '')}')">
+
+        <button class="bigBtn gold" onclick="copyText('${escapeAttr(bank.bankAccountNumber || bank.account || '')}')">
           คัดลอกเลขบัญชี
         </button>
       </div>
 
       <div class="notice warn">
-        หลังโอนเงิน ให้แอดมินยืนยันสถานะ Payment เป็น <b>Confirmed</b>
-        แล้วกลับมากดปุ่ม “รับสินค้า”
+        หลังโอนเงินแล้ว ให้แอดมินยืนยันชำระเงินในชีต จากนั้นกดรับสินค้า
       </div>
 
-      <button class="copyBtn" onclick="receiveLastOrder()">รับสินค้า</button>
-      <button class="copyBtn light" onclick="copyText('${escapeAttr(res.orderId + '|' + res.auth)}')">
-        คัดลอกข้อมูลออเดอร์
-      </button>
+      <button class="bigBtn" onclick="receiveOrder('${escapeAttr(orderId)}','${escapeAttr(auth)}')">รับสินค้า</button>
+      <button class="bigBtn light" onclick="copyText('${escapeAttr(orderId + '|' + auth)}')">คัดลอกข้อมูลออเดอร์</button>
     `;
   }
 
-  function openOrderLookup() {
+  function openReceive(){
     openModal('รับสินค้า', `
       <div class="notice">
-        ใส่ Order ID และรหัสตรวจสอบ หรือใช้รายการล่าสุดที่เครื่องนี้บันทึกไว้
+        ถ้าสั่งซื้อจากเครื่องนี้ ระบบจะจำออเดอร์ล่าสุดไว้ให้<br>
+        หรือกรอก Order ID และรหัสรับสินค้าเองได้
       </div>
 
       <div class="form">
         <input id="lookupOrderId" placeholder="Order ID" value="${escapeAttr(lastOrder.orderId || '')}">
-        <input id="lookupAuth" placeholder="รหัสตรวจสอบ" value="${escapeAttr(lastOrder.auth || '')}">
+        <input id="lookupAuth" placeholder="รหัสรับสินค้า" value="${escapeAttr(lastOrder.auth || '')}">
       </div>
 
-      <button class="copyBtn" onclick="receiveByInput()">รับสินค้า</button>
-      <button class="copyBtn light" onclick="checkOrderByInput()">เช็กสถานะ</button>
+      <button class="bigBtn gold" onclick="receiveByInput()">รับสินค้า</button>
+      <button class="bigBtn light" onclick="checkOrderByInput()">เช็กสถานะ</button>
     `);
   }
 
-  function receiveLastOrder() {
-    if (!lastOrder.orderId || !lastOrder.auth) {
-      openOrderLookup();
-      return;
-    }
-    receiveOrder(lastOrder.orderId, lastOrder.auth);
-  }
-
-  function receiveByInput() {
-    receiveOrder($('lookupOrderId').value.trim(), $('lookupAuth').value.trim());
-  }
-
-  async function checkOrderByInput() {
+  function receiveByInput(){
     const orderId = $('lookupOrderId').value.trim();
     const auth = $('lookupAuth').value.trim();
 
-    if (!orderId || !auth) {
+    if (!orderId || !auth){
       toast('กรุณากรอกข้อมูลให้ครบ');
       return;
     }
 
-    $('modalBody').innerHTML = loadingHtml('กำลังเช็กสถานะ...');
+    receiveOrder(orderId,auth);
+  }
 
-    try {
-      const res = await api('order', { orderId, auth });
-      if (!res.ok) throw new Error(res.message || 'เช็กสถานะไม่สำเร็จ');
+  async function checkOrderByInput(){
+    const orderId = $('lookupOrderId').value.trim();
+    const auth = $('lookupAuth').value.trim();
 
-      $('modalTitle').textContent = 'สถานะออเดอร์';
+    if (!orderId || !auth){
+      toast('กรุณากรอกข้อมูลให้ครบ');
+      return;
+    }
+
+    openModal('เช็กสถานะ', loadingHtml('กำลังเช็กสถานะ...'));
+
+    try{
+      const res = await api('order',{orderId,auth});
+
+      if (!res || res.ok === false){
+        throw new Error((res && res.message) || 'เช็กสถานะไม่สำเร็จ');
+      }
+
       $('modalBody').innerHTML = `
         <div class="notice">
-          Order: <b>${escapeHtml(res.orderId)}</b><br>
-          สถานะออเดอร์: <b>${escapeHtml(res.orderStatus || '')}</b><br>
+          Order ID: <b>${escapeHtml(res.orderId || orderId)}</b><br>
+          สถานะออเดอร์: <b>${escapeHtml(res.orderStatus || res.status || '')}</b><br>
           สถานะชำระเงิน: <b>${escapeHtml(res.paymentStatus || '')}</b><br>
           ยอดรวม: <b>${escapeHtml(res.totalText || '')}</b>
         </div>
 
-        <button class="copyBtn" onclick="receiveOrder('${escapeAttr(orderId)}','${escapeAttr(auth)}')">
-          รับสินค้า
-        </button>
-        <button class="copyBtn light" onclick="openOrderLookup()">กลับ</button>
+        <button class="bigBtn gold" onclick="receiveOrder('${escapeAttr(orderId)}','${escapeAttr(auth)}')">รับสินค้า</button>
+        <button class="bigBtn light" onclick="openReceive()">กลับ</button>
       `;
 
-    } catch(e) {
+    }catch(e){
       $('modalBody').innerHTML = `
         <div class="notice warn">${escapeHtml(e.message)}</div>
-        <button class="copyBtn light" onclick="openOrderLookup()">กลับ</button>
+        <button class="bigBtn light" onclick="openReceive()">กลับ</button>
       `;
     }
   }
 
-  async function receiveOrder(orderId, auth) {
-    if (!orderId || !auth) {
-      openOrderLookup();
+  async function receiveOrder(orderId,auth){
+    if (!orderId || !auth){
+      openReceive();
       return;
     }
 
     openModal('รับสินค้า', loadingHtml('กำลังจัดส่งสินค้า...'));
 
-    try {
-      const res = await api('receive', { orderId, auth });
+    try{
+      const res = await api('receive',{orderId,auth});
 
-      if (!res.ok) {
+      if (!res || res.ok === false){
         $('modalBody').innerHTML = `
-          <div class="notice warn">${escapeHtml(res.message || 'ยังรับสินค้าไม่ได้')}</div>
-          <button class="copyBtn light" onclick="openOrderLookup()">กลับไปเช็กอีกครั้ง</button>
+          <div class="notice warn">${escapeHtml((res && res.message) || 'ยังรับสินค้าไม่ได้')}</div>
+          <button class="bigBtn light" onclick="openReceive()">กลับไปเช็กอีกครั้ง</button>
         `;
         return;
       }
 
-      const items = res.items || [];
+      const items = res.items || res.codes || [];
 
       $('modalTitle').textContent = 'สินค้าของคุณ';
+
       $('modalBody').innerHTML = `
         <div class="notice good">
           ${escapeHtml(res.message || 'รับสินค้าเรียบร้อย')}<br>
-          Order: <b>${escapeHtml(res.orderId || orderId)}</b>
+          Order ID: <b>${escapeHtml(res.orderId || orderId)}</b>
         </div>
 
-        ${items.map((it, i) => `
-          <div class="row">
-            <div class="rowName">${escapeHtml(it.name || ('สินค้า ' + (i + 1)))}</div>
-            <div class="codeBox" id="code_${i}">${escapeHtml(it.code || '')}</div>
-            <button class="copyBtn" onclick="copyFromBox('code_${i}')">คัดลอกสินค้า</button>
-          </div>
-        `).join('')}
+        ${
+          items.length
+          ? items.map((it,i) => `
+            <div class="row">
+              <div class="rowName">${escapeHtml(it.name || it.productName || ('สินค้า ' + (i + 1)))}</div>
+              <div class="codeBox" id="code_${i}">${escapeHtml(it.code || it.value || it.text || '')}</div>
+              <button class="bigBtn gold" onclick="copyFromBox('code_${i}')">คัดลอกสินค้า</button>
+            </div>
+          `).join('')
+          : `<div class="notice warn">ไม่พบรายการสินค้าในออเดอร์นี้</div>`
+        }
 
-        ${items.length ? `<button class="copyBtn light" onclick="copyAllItems()">คัดลอกทั้งหมด</button>` : ''}
+        ${items.length ? `<button class="bigBtn light" onclick="copyAllItems()">คัดลอกทั้งหมด</button>` : ''}
       `;
 
-    } catch(e) {
+    }catch(e){
       $('modalBody').innerHTML = `
         <div class="notice warn">${escapeHtml(e.message)}</div>
-        <button class="copyBtn light" onclick="openOrderLookup()">กลับ</button>
+        <button class="bigBtn light" onclick="openReceive()">กลับ</button>
       `;
     }
   }
 
-  function copyAllItems() {
-    const codes = Array.from(document.querySelectorAll('.codeBox'))
+  function copyAllItems(){
+    const text = Array.from(document.querySelectorAll('.codeBox'))
       .map(x => x.textContent.trim())
       .filter(Boolean)
       .join('\n\n');
-    copyText(codes);
+
+    copyText(text);
   }
 
-  function openModal(title, html) {
-    $('modalTitle').textContent = title;
-    $('modalBody').innerHTML = html;
-    $('modal').classList.add('show');
-    document.body.style.overflow = 'hidden';
+  function copyFromBox(id){
+    copyText($(id).textContent);
   }
 
-  function closeModal() {
-    $('modal').classList.remove('show');
-    document.body.style.overflow = '';
-  }
+  function copyText(text){
+    text = String(text || '').trim();
 
-  function backdropClose(e) {
-    if (e.target.id === 'modal') closeModal();
-  }
-
-  function loadingHtml(text) {
-    return `
-      <div class="loading">
-        <div class="spinner"></div>
-        ${escapeHtml(text || 'กำลังโหลด...')}
-      </div>
-    `;
-  }
-
-  function copyText(text) {
-    text = String(text || '');
-
-    if (!text) {
+    if (!text){
       toast('ไม่มีข้อมูลให้คัดลอก');
       return;
     }
 
-    if (navigator.clipboard && navigator.clipboard.writeText) {
+    if (navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(text).then(() => toast('คัดลอกแล้ว'));
       return;
     }
@@ -1531,23 +1726,46 @@
     ta.select();
     document.execCommand('copy');
     ta.remove();
+
     toast('คัดลอกแล้ว');
   }
 
-  function copyFromBox(id) {
-    copyText($(id).textContent);
+  function openModal(title,html){
+    $('modalTitle').textContent = title;
+    $('modalBody').innerHTML = html;
+    $('modal').classList.add('show');
+    document.body.style.overflow = 'hidden';
   }
 
-  function toast(msg) {
+  function closeModal(){
+    $('modal').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  function backdropClose(e){
+    if (e.target.id === 'modal') closeModal();
+  }
+
+  function loadingHtml(text){
+    return `
+      <div class="loading">
+        <div class="spinner"></div>
+        ${escapeHtml(text || 'กำลังโหลด...')}
+      </div>
+    `;
+  }
+
+  function toast(msg){
     const el = $('toast');
     el.textContent = msg;
     el.classList.add('show');
+
     clearTimeout(window.__toastTimer);
-    window.__toastTimer = setTimeout(() => el.classList.remove('show'), 1700);
+    window.__toastTimer = setTimeout(() => el.classList.remove('show'),1700);
   }
 
-  function escapeHtml(s) {
-    return String(s ?? '').replace(/[&<>"']/g, m => ({
+  function escapeHtml(s){
+    return String(s ?? '').replace(/[&<>"']/g,m => ({
       '&':'&amp;',
       '<':'&lt;',
       '>':'&gt;',
@@ -1556,11 +1774,11 @@
     }[m]));
   }
 
-  function escapeAttr(s) {
-    return escapeHtml(s).replace(/`/g, '&#96;');
+  function escapeAttr(s){
+    return escapeHtml(s).replace(/`/g,'&#96;');
   }
 
-  document.addEventListener('keydown', e => {
+  document.addEventListener('keydown',e => {
     if (e.key === 'Escape') closeModal();
   });
 
