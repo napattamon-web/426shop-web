@@ -1,27 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#111111">
-  <title>426 SHOP</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>426 Premium Apps</title>
 
   <style>
     :root{
-      --bg:#f6f4ef;
-      --surface:#ffffff;
-      --surface2:#f9f7f2;
-      --black:#111111;
-      --text:#1f1f1f;
-      --muted:#77736b;
-      --line:#e6e0d7;
-      --gold:#b98b3f;
-      --gold2:#d8b36b;
-      --danger:#c94b4b;
-      --success:#2f8b57;
-      --radius:24px;
-      --shadow:0 18px 50px rgba(20,20,20,.10);
-      --shadow2:0 8px 24px rgba(20,20,20,.08);
+      --bg:#fbf3e8;
+      --cream:#fffaf2;
+      --cream2:#f5e6d3;
+      --brown:#2b160c;
+      --brown2:#432313;
+      --brown3:#6d4328;
+      --gold:#c5965c;
+      --gold2:#e1bf8a;
+      --muted:#927461;
+      --line:#ead6bf;
+      --danger:#ad4737;
+      --success:#557a45;
+      --shadow:0 18px 45px rgba(43,22,12,.14);
+      --radius:26px;
     }
 
     *{
@@ -32,538 +31,633 @@
     body{
       margin:0;
       min-height:100vh;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
-      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,sans-serif;
       background:
-        radial-gradient(circle at 15% -8%,rgba(216,179,107,.28),transparent 30%),
-        radial-gradient(circle at 90% 8%,rgba(17,17,17,.08),transparent 28%),
-        linear-gradient(180deg,#fbfaf7 0%,var(--bg) 48%,#efe9de 100%);
-      overflow-x:hidden;
+        radial-gradient(circle at top left, rgba(197,150,92,.24), transparent 30%),
+        linear-gradient(180deg,#2b160c 0,#432313 145px,#fbf3e8 340px);
+      color:var(--brown);
     }
 
     button,input{
-      font:inherit;
+      font-family:inherit;
     }
 
     button{
-      border:0;
       cursor:pointer;
-      transition:.18s ease;
-    }
-
-    button:active{
-      transform:scale(.97);
     }
 
     .app{
       width:100%;
-      max-width:560px;
-      margin:0 auto;
+      max-width:480px;
       min-height:100vh;
-      padding:14px 14px 112px;
+      margin:0 auto;
+      padding:18px 14px 102px;
     }
 
-    .top{
-      position:sticky;
-      top:0;
-      z-index:30;
-      padding:8px 0 12px;
-      background:linear-gradient(180deg,rgba(246,244,239,.94),rgba(246,244,239,.76));
-      backdrop-filter:blur(20px);
-    }
-
-    .brandBar{
+    .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
-      margin-bottom:12px;
+      color:var(--cream);
+      margin-bottom:18px;
     }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .logoMark{
-      width:42px;
-      height:42px;
-      border-radius:15px;
+    .icon-btn{
+      width:48px;
+      height:48px;
+      border:none;
+      border-radius:18px;
+      background:rgba(255,250,242,.11);
+      color:var(--cream);
       display:grid;
       place-items:center;
-      color:#fff;
-      background:linear-gradient(145deg,#111,#373737);
-      box-shadow:0 10px 24px rgba(0,0,0,.18);
-      font-size:17px;
-      font-weight:1000;
-      letter-spacing:.3px;
+      box-shadow:0 12px 26px rgba(0,0,0,.16);
+      backdrop-filter:blur(12px);
+      position:relative;
     }
 
-    .logoText b{
-      display:block;
-      color:var(--black);
-      font-size:18px;
-      line-height:1.1;
+    .brand{
+      flex:1;
+      text-align:center;
+      min-width:0;
+    }
+
+    .brand h1{
+      margin:0;
+      font-size:23px;
+      line-height:1.05;
+      font-weight:950;
+      letter-spacing:-.4px;
+    }
+
+    .brand p{
+      margin:5px 0 0;
+      font-size:12px;
+      color:#e9d2b8;
+      font-weight:700;
       letter-spacing:.2px;
     }
 
-    .logoText span{
-      display:block;
-      color:var(--muted);
-      font-size:11px;
-      font-weight:800;
-      margin-top:2px;
-      letter-spacing:.4px;
-      text-transform:uppercase;
-    }
-
-    .cartMini{
-      min-width:82px;
-      padding:11px 13px;
-      border-radius:999px;
-      color:#fff;
-      background:var(--black);
-      box-shadow:0 12px 26px rgba(0,0,0,.18);
-      font-weight:1000;
-      font-size:13px;
-    }
-
-    .cartMini span{
-      display:inline-grid;
-      place-items:center;
-      min-width:23px;
-      height:23px;
-      margin-left:4px;
+    .badge{
+      position:absolute;
+      top:-6px;
+      right:-6px;
+      min-width:22px;
+      height:22px;
       padding:0 7px;
       border-radius:999px;
-      color:var(--black);
-      background:linear-gradient(135deg,var(--gold2),#fff0c8);
+      background:var(--gold2);
+      color:var(--brown);
+      display:grid;
+      place-items:center;
       font-size:12px;
+      font-weight:950;
+      border:2px solid rgba(43,22,12,.45);
+    }
+
+    .search{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(255,250,242,.96);
+      border:1px solid rgba(234,214,191,.82);
+      border-radius:999px;
+      padding:14px 16px;
+      box-shadow:var(--shadow);
+      margin-bottom:16px;
+    }
+
+    .search svg{
+      color:var(--brown3);
+      flex:none;
+    }
+
+    .search input{
+      width:100%;
+      border:none;
+      outline:none;
+      background:transparent;
+      font-size:15px;
+      color:var(--brown);
+      font-weight:700;
     }
 
     .hero{
       position:relative;
       overflow:hidden;
-      min-height:210px;
-      padding:22px 18px;
-      border-radius:32px;
-      color:#fff;
+      border-radius:30px;
+      min-height:255px;
+      padding:24px 20px;
+      margin-bottom:17px;
       background:
-        linear-gradient(135deg,rgba(17,17,17,.96),rgba(44,42,38,.96)),
-        radial-gradient(circle at 85% 10%,rgba(216,179,107,.42),transparent 35%);
+        linear-gradient(120deg, rgba(255,250,242,.96), rgba(255,250,242,.86) 45%, rgba(67,35,19,.2)),
+        url("https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80");
+      background-size:cover;
+      background-position:center right;
       box-shadow:var(--shadow);
+      border:1px solid rgba(234,214,191,.86);
     }
 
-    .hero:before{
+    .hero::before{
       content:"";
       position:absolute;
-      width:190px;
-      height:190px;
-      right:-75px;
-      top:-70px;
+      right:-54px;
+      bottom:-62px;
+      width:172px;
+      height:172px;
+      background:rgba(197,150,92,.18);
       border-radius:50%;
-      background:radial-gradient(circle,rgba(216,179,107,.50),rgba(216,179,107,0) 68%);
     }
 
-    .hero:after{
+    .hero::after{
       content:"";
       position:absolute;
-      inset:0;
-      background:
-        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
-        linear-gradient(180deg,rgba(255,255,255,.04) 1px,transparent 1px);
-      background-size:28px 28px;
-      opacity:.22;
-      pointer-events:none;
+      right:20px;
+      top:22px;
+      width:76px;
+      height:76px;
+      border-radius:24px;
+      background:linear-gradient(145deg,var(--brown2),var(--brown));
+      box-shadow:0 18px 34px rgba(43,22,12,.22);
+      opacity:.92;
     }
 
-    .heroContent{
-      position:relative;
-      z-index:2;
-    }
-
-    .badge{
+    .hero-label{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:8px 12px;
+      background:var(--brown2);
+      color:var(--cream);
       border-radius:999px;
-      color:#fff1d0;
-      background:rgba(255,255,255,.09);
-      border:1px solid rgba(255,255,255,.16);
+      padding:8px 14px;
       font-size:12px;
       font-weight:900;
-      backdrop-filter:blur(10px);
+      letter-spacing:.2px;
+      margin-bottom:14px;
     }
 
-    .dot{
+    .hero-label span{
       width:8px;
       height:8px;
       border-radius:50%;
       background:var(--gold2);
-      box-shadow:0 0 0 5px rgba(216,179,107,.16);
+      display:block;
     }
 
-    h1{
-      margin:18px 0 0;
-      font-size:34px;
-      line-height:.95;
-      letter-spacing:-.8px;
-      color:#fff;
+    .hero h2{
+      margin:0;
+      max-width:245px;
+      color:var(--brown2);
+      font-size:37px;
+      line-height:1.04;
+      font-weight:950;
+      letter-spacing:-1.2px;
     }
 
     .hero p{
-      width:80%;
-      margin:12px 0 0;
-      color:#d9d2c7;
-      font-size:13px;
-      line-height:1.6;
+      margin:13px 0 19px;
+      max-width:245px;
+      color:#735039;
+      font-size:14px;
+      line-height:1.58;
+      font-weight:700;
     }
 
-    .heroActions{
-      display:flex;
-      gap:9px;
-      margin-top:18px;
-    }
-
-    .heroBtn{
-      padding:12px 15px;
+    .primary{
+      border:none;
       border-radius:999px;
-      font-size:13px;
-      font-weight:1000;
+      padding:13px 18px;
+      background:linear-gradient(145deg,var(--brown2),var(--brown));
+      color:var(--cream);
+      font-size:15px;
+      font-weight:950;
+      box-shadow:0 13px 28px rgba(43,22,12,.22);
     }
 
-    .heroBtn.primary{
-      color:#111;
-      background:linear-gradient(135deg,var(--gold2),#fff0c8);
+    .secondary{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:12px 16px;
+      background:var(--cream);
+      color:var(--brown2);
+      font-size:14px;
+      font-weight:950;
     }
 
-    .heroBtn.secondary{
-      color:#fff;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
+    .hero-actions{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:2;
     }
 
-    .metricRow{
+    .trust-row{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:9px;
-      margin-top:12px;
+      margin-bottom:18px;
     }
 
-    .metric{
+    .trust-card{
+      background:rgba(255,250,242,.94);
+      border:1px solid var(--line);
+      border-radius:20px;
       padding:13px 10px;
-      border-radius:22px;
-      background:rgba(255,255,255,.84);
-      border:1px solid rgba(230,224,215,.88);
-      box-shadow:var(--shadow2);
       text-align:center;
+      box-shadow:0 10px 25px rgba(43,22,12,.08);
     }
 
-    .metric b{
+    .trust-card svg{
+      color:var(--brown3);
+      margin-bottom:6px;
+    }
+
+    .trust-card b{
       display:block;
-      color:var(--black);
-      font-size:16px;
-      line-height:1.1;
-    }
-
-    .metric span{
-      display:block;
-      margin-top:4px;
-      color:var(--muted);
-      font-size:11px;
-      font-weight:900;
-    }
-
-    .searchWrap{
-      position:relative;
-      margin-top:12px;
-    }
-
-    .searchWrap input{
-      width:100%;
-      height:52px;
-      padding:0 46px 0 45px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      outline:none;
-      color:var(--text);
-      background:rgba(255,255,255,.92);
-      box-shadow:0 10px 24px rgba(20,20,20,.06);
-    }
-
-    .searchWrap input:focus{
-      border-color:var(--gold);
-      box-shadow:0 0 0 4px rgba(185,139,63,.13);
-    }
-
-    .searchIcon{
-      position:absolute;
-      left:17px;
-      top:50%;
-      transform:translateY(-50%);
-      color:var(--muted);
-      font-weight:1000;
-    }
-
-    .clearSearch{
-      display:none;
-      position:absolute;
-      right:9px;
-      top:50%;
-      transform:translateY(-50%);
-      width:34px;
-      height:34px;
-      border-radius:50%;
-      color:var(--black);
-      background:var(--surface2);
-      font-size:19px;
-      font-weight:1000;
-    }
-
-    .tabs{
-      display:flex;
-      gap:9px;
-      overflow:auto;
-      scrollbar-width:none;
-      padding:11px 1px 3px;
-    }
-
-    .tabs::-webkit-scrollbar{
-      display:none;
-    }
-
-    .tab{
-      flex:0 0 auto;
-      padding:10px 14px;
-      border-radius:999px;
-      color:var(--muted);
-      background:rgba(255,255,255,.82);
-      border:1px solid var(--line);
       font-size:13px;
-      font-weight:1000;
-      box-shadow:0 7px 16px rgba(20,20,20,.04);
+      color:var(--brown2);
+      line-height:1.25;
     }
 
-    .tab.active{
-      color:#fff;
-      background:var(--black);
-      border-color:var(--black);
-      box-shadow:0 10px 22px rgba(0,0,0,.15);
-    }
-
-    .sectionTitle{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
-      margin:16px 2px 11px;
-    }
-
-    .sectionTitle h2{
-      margin:0;
-      color:var(--black);
-      font-size:20px;
-      letter-spacing:-.2px;
-    }
-
-    .sectionTitle span{
+    .trust-card span{
+      display:block;
+      margin-top:3px;
+      font-size:11px;
       color:var(--muted);
-      font-size:12px;
-      font-weight:900;
+      font-weight:700;
     }
 
-    .grid{
+    .category-wrap{
+      background:rgba(255,250,242,.95);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      border-radius:28px;
+      padding:14px 8px 8px;
+      margin-bottom:18px;
+    }
+
+    .categories{
+      display:flex;
+      gap:10px;
+      overflow-x:auto;
+      padding:1px 4px 10px;
+      scrollbar-width:none;
+    }
+
+    .categories::-webkit-scrollbar{
+      display:none;
+    }
+
+    .cat{
+      min-width:88px;
+      border:none;
+      background:transparent;
+      text-align:center;
+      color:var(--brown2);
+    }
+
+    .cat-icon{
+      width:64px;
+      height:64px;
+      margin:0 auto 8px;
       display:grid;
-      grid-template-columns:1fr 1fr;
+      place-items:center;
+      border-radius:22px;
+      background:linear-gradient(145deg,#f8ead9,#ead3b9);
+      box-shadow:inset 0 -7px 14px rgba(109,67,40,.08);
+      color:var(--brown3);
+    }
+
+    .cat.active .cat-icon{
+      background:linear-gradient(145deg,var(--brown2),var(--brown));
+      color:var(--cream);
+    }
+
+    .cat span{
+      font-size:12px;
+      font-weight:950;
+      line-height:1.25;
+      display:block;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin:18px 2px 12px;
+    }
+
+    .section-head h3{
+      margin:0;
+      color:var(--brown2);
+      font-size:22px;
+      line-height:1.15;
+      font-weight:950;
+    }
+
+    .section-head button{
+      border:none;
+      background:transparent;
+      color:var(--brown3);
+      font-size:14px;
+      font-weight:950;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:13px;
     }
 
-    .card{
+    .product{
       position:relative;
       overflow:hidden;
-      padding:10px;
-      border-radius:28px;
-      background:rgba(255,255,255,.94);
-      border:1px solid rgba(230,224,215,.9);
-      box-shadow:var(--shadow2);
-      animation:fadeUp .28s ease both;
+      background:var(--cream);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:0 12px 28px rgba(43,22,12,.09);
+      animation:showUp .28s ease both;
     }
 
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(10px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    .productImage{
+    .product-img-wrap{
       position:relative;
-      height:156px;
+      width:100%;
+      aspect-ratio:1/1;
       overflow:hidden;
-      border-radius:23px;
-      background:
-        radial-gradient(circle at 30% 18%,#fff,transparent 36%),
-        linear-gradient(145deg,#f8f5ef,#eee7dc);
-      border:1px solid #eee7dc;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      background:#ead6bf;
     }
 
-    .productImage img{
+    .product-img{
       width:100%;
       height:100%;
-      object-fit:contain;
-      padding:7px;
-      mix-blend-mode:multiply;
+      display:block;
+      object-fit:cover;
+      transition:.28s ease;
     }
 
-    .tag{
+    .product:hover .product-img{
+      transform:scale(1.04);
+    }
+
+    .plan-tag{
       position:absolute;
-      left:9px;
-      top:9px;
-      z-index:3;
-      padding:6px 9px;
+      left:10px;
+      top:10px;
+      max-width:calc(100% - 20px);
       border-radius:999px;
-      color:#111;
-      background:rgba(255,255,255,.88);
-      border:1px solid rgba(230,224,215,.9);
-      backdrop-filter:blur(12px);
-      font-size:10px;
-      font-weight:1000;
-    }
-
-    .productName{
-      margin-top:10px;
-      min-height:39px;
-      color:var(--black);
-      text-align:center;
-      font-size:14px;
-      font-weight:1000;
-      line-height:1.35;
-      display:-webkit-box;
-      -webkit-line-clamp:2;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-    }
-
-    .productDesc{
-      min-height:32px;
-      margin-top:5px;
-      color:var(--muted);
-      text-align:center;
+      padding:6px 9px;
+      background:rgba(255,250,242,.93);
+      color:var(--brown2);
       font-size:11px;
-      line-height:1.45;
-      display:-webkit-box;
-      -webkit-line-clamp:2;
-      -webkit-box-orient:vertical;
+      font-weight:950;
+      backdrop-filter:blur(8px);
+      white-space:nowrap;
       overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .product-body{
+      padding:12px;
+    }
+
+    .product-name{
+      margin:0;
+      color:var(--brown2);
+      font-size:14px;
+      font-weight:950;
+      line-height:1.35;
+      min-height:38px;
+    }
+
+    .product-desc{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+      font-weight:700;
+      min-height:34px;
+    }
+
+    .product-meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      margin-top:11px;
     }
 
     .price{
-      margin-top:9px;
-      color:var(--black);
-      text-align:center;
-      font-size:17px;
+      color:var(--brown3);
+      font-size:18px;
       font-weight:1000;
-      letter-spacing:-.2px;
+      letter-spacing:-.3px;
     }
 
-    .stock{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:6px;
-      margin-top:7px;
-      color:var(--muted);
-      font-size:11px;
-      font-weight:900;
-    }
-
-    .stock i{
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:var(--success);
-    }
-
-    .stock i.out{
-      background:var(--danger);
-    }
-
-    .buy{
-      width:100%;
-      margin-top:10px;
-      padding:12px 8px;
-      border-radius:999px;
-      color:#fff;
-      background:var(--black);
-      font-size:13px;
-      font-weight:1000;
-      box-shadow:0 11px 22px rgba(0,0,0,.14);
-    }
-
-    .buy:disabled{
-      color:#948d82;
-      background:#e7e1d8;
-      box-shadow:none;
-      cursor:not-allowed;
-    }
-
-    .bottomNav{
-      position:fixed;
-      left:0;
-      right:0;
-      bottom:0;
-      z-index:60;
-      padding:10px 14px calc(10px + env(safe-area-inset-bottom));
-      background:rgba(246,244,239,.78);
-      backdrop-filter:blur(22px);
-      border-top:1px solid rgba(230,224,215,.92);
-    }
-
-    .bottomInner{
-      max-width:560px;
-      margin:0 auto;
+    .cart-btn{
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:16px;
       display:grid;
-      grid-template-columns:1fr 1.35fr;
-      gap:10px;
+      place-items:center;
+      background:linear-gradient(145deg,var(--brown2),var(--brown));
+      color:var(--cream);
+      box-shadow:0 9px 18px rgba(43,22,12,.18);
     }
 
-    .navBtn{
-      min-height:52px;
-      border-radius:999px;
-      font-weight:1000;
+    .promo{
+      margin-top:18px;
+      border-radius:28px;
+      padding:20px;
+      overflow:hidden;
+      position:relative;
+      background:
+        linear-gradient(115deg,rgba(43,22,12,.96),rgba(67,35,19,.72)),
+        url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80");
+      background-size:cover;
+      background-position:center;
+      color:var(--cream);
+      box-shadow:var(--shadow);
+    }
+
+    .promo small{
+      display:block;
+      color:var(--gold2);
+      font-weight:950;
+      letter-spacing:.8px;
+      margin-bottom:8px;
+    }
+
+    .promo h3{
+      margin:0;
+      font-size:26px;
+      line-height:1.12;
+      font-weight:950;
+      max-width:270px;
+    }
+
+    .promo p{
+      margin:9px 0 16px;
+      color:#f6dfc5;
       font-size:14px;
+      line-height:1.5;
+      max-width:280px;
+      font-weight:700;
     }
 
-    .navBtn.light{
-      color:var(--black);
-      background:rgba(255,255,255,.9);
+    .promo .primary{
+      background:var(--cream);
+      color:var(--brown2);
+      box-shadow:none;
+    }
+
+    .loading-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:13px;
+    }
+
+    .skeleton{
+      height:236px;
+      border-radius:24px;
+      background:linear-gradient(90deg,#ead6bf,#fff7ef,#ead6bf);
+      background-size:200% 100%;
+      animation:shine 1.1s infinite;
+    }
+
+    .empty,.error{
+      background:rgba(255,250,242,.95);
       border:1px solid var(--line);
-      box-shadow:0 8px 20px rgba(20,20,20,.06);
+      border-radius:24px;
+      padding:22px;
+      text-align:center;
+      color:var(--brown2);
+      box-shadow:var(--shadow);
+      font-weight:800;
+      line-height:1.55;
     }
 
-    .navBtn.dark{
-      color:#fff;
-      background:var(--black);
-      box-shadow:0 14px 30px rgba(0,0,0,.18);
+    .bottom-nav{
+      position:fixed;
+      left:50%;
+      bottom:14px;
+      transform:translateX(-50%);
+      width:min(452px,calc(100% - 28px));
+      height:74px;
+      z-index:50;
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      align-items:center;
+      padding:7px;
+      border-radius:28px;
+      background:linear-gradient(145deg,#432313,#241107);
+      box-shadow:0 18px 42px rgba(28,12,6,.34);
     }
 
-    .modal{
-      display:none;
+    .nav-item{
+      height:60px;
+      border:none;
+      border-radius:21px;
+      background:transparent;
+      color:#ead6bf;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:4px;
+      font-size:10.5px;
+      font-weight:850;
+    }
+
+    .nav-item svg{
+      width:21px;
+      height:21px;
+    }
+
+    .nav-item.active{
+      background:var(--cream);
+      color:var(--brown2);
+    }
+
+    .nav-item.center{
+      height:76px;
+      border-radius:50%;
+      transform:translateY(-13px);
+      background:linear-gradient(145deg,var(--gold),var(--brown3));
+      color:var(--cream);
+      border:4px solid rgba(255,250,242,.18);
+    }
+
+    .drawer{
       position:fixed;
       inset:0;
       z-index:100;
+      background:rgba(30,13,6,.48);
+      display:none;
+    }
+
+    .drawer.show{
+      display:block;
+    }
+
+    .drawer-panel{
+      width:82%;
+      max-width:340px;
+      height:100%;
+      background:var(--cream);
+      border-radius:0 32px 32px 0;
+      padding:24px;
+      box-shadow:20px 0 50px rgba(0,0,0,.22);
+      animation:slideIn .22s ease both;
+    }
+
+    .drawer-panel h2{
+      margin:0 0 6px;
+      color:var(--brown2);
+      font-size:25px;
+      font-weight:950;
+    }
+
+    .drawer-panel p{
+      margin:0 0 20px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:750;
+    }
+
+    .drawer-panel button{
+      width:100%;
+      display:flex;
+      align-items:center;
+      gap:11px;
+      border:none;
+      border-radius:17px;
+      padding:14px 15px;
+      margin:8px 0;
+      background:#f3e2ce;
+      color:var(--brown2);
+      font-size:15px;
+      font-weight:950;
+      text-align:left;
+    }
+
+    .drawer-panel svg{
+      color:var(--brown3);
+      flex:none;
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      z-index:120;
+      display:none;
       align-items:flex-end;
-      background:rgba(0,0,0,.42);
-      backdrop-filter:blur(6px);
+      justify-content:center;
+      background:rgba(30,13,6,.5);
     }
 
     .modal.show{
@@ -571,273 +665,133 @@
     }
 
     .sheet{
-      width:100%;
-      max-width:560px;
+      width:min(480px,100%);
       max-height:88vh;
       overflow:auto;
-      margin:0 auto;
-      padding:16px 16px calc(18px + env(safe-area-inset-bottom));
+      background:var(--cream);
       border-radius:32px 32px 0 0;
-      background:linear-gradient(180deg,#fff,#f8f5ef);
-      box-shadow:0 -28px 70px rgba(0,0,0,.24);
+      padding:18px;
+      box-shadow:0 -20px 55px rgba(0,0,0,.26);
       animation:sheetUp .22s ease both;
     }
 
-    @keyframes sheetUp{
-      from{
-        opacity:.75;
-        transform:translateY(28px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    .handle{
-      width:48px;
-      height:5px;
-      margin:0 auto 14px;
-      border-radius:999px;
-      background:#d7cec1;
-    }
-
-    .sheetHead{
+    .sheet-head{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      gap:12px;
-      margin-bottom:12px;
-    }
-
-    .sheetHead h2{
-      margin:0;
-      color:var(--black);
-      font-size:21px;
-      letter-spacing:-.3px;
-    }
-
-    .x{
-      width:40px;
-      height:40px;
-      border-radius:50%;
-      color:var(--black);
-      background:#eee9df;
-      font-size:23px;
-      font-weight:1000;
-    }
-
-    .notice{
-      margin:10px 0;
-      padding:14px;
-      border-radius:22px;
-      color:#504a42;
-      background:#f4efe6;
-      border:1px solid #e7ddcf;
-      font-size:13px;
-      line-height:1.65;
-    }
-
-    .notice.good{
-      color:#236342;
-      background:#edf8f1;
-      border-color:#cfebda;
-    }
-
-    .notice.warn{
-      color:#8a5a17;
-      background:#fff7e8;
-      border-color:#ead5ad;
-    }
-
-    .row{
-      margin:10px 0;
-      padding:13px;
-      border-radius:23px;
-      background:#fff;
-      border:1px solid var(--line);
-      box-shadow:0 8px 20px rgba(20,20,20,.05);
-    }
-
-    .rowTop{
-      display:flex;
       justify-content:space-between;
       gap:12px;
+      margin-bottom:14px;
     }
 
-    .rowName{
-      color:var(--black);
+    .sheet-head h3{
+      margin:0;
+      color:var(--brown2);
+      font-size:23px;
+      font-weight:950;
+    }
+
+    .close{
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:#ead6bf;
+      color:var(--brown2);
+      font-size:24px;
+      font-weight:900;
+    }
+
+    .cart-line{
+      display:grid;
+      grid-template-columns:58px 1fr auto;
+      gap:10px;
+      align-items:center;
+      background:#fffaf2;
+      border:1px solid var(--line);
+      border-radius:19px;
+      padding:9px;
+      margin-bottom:10px;
+    }
+
+    .cart-line img{
+      width:58px;
+      height:58px;
+      border-radius:15px;
+      object-fit:cover;
+    }
+
+    .cart-line b{
+      color:var(--brown2);
       font-size:14px;
-      font-weight:1000;
-      line-height:1.45;
+      line-height:1.3;
     }
 
-    .rowMeta{
-      margin-top:4px;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.5;
+    .cart-line span{
+      color:var(--brown3);
+      font-size:13px;
+      font-weight:900;
     }
 
     .qty{
       display:flex;
       align-items:center;
-      gap:8px;
-      margin-top:11px;
+      gap:7px;
+      margin-top:7px;
     }
 
     .qty button{
-      min-width:36px;
-      height:36px;
-      border-radius:999px;
-      color:var(--black);
-      background:#f4efe6;
-      font-weight:1000;
-    }
-
-    .qty .remove{
-      margin-left:auto;
-      padding:0 14px;
-      color:var(--danger);
-      background:#fff0ee;
+      width:29px;
+      height:29px;
+      border:none;
+      border-radius:10px;
+      background:#ead6bf;
+      color:var(--brown2);
+      font-weight:950;
     }
 
     .total{
-      margin:12px 0;
-      padding:17px 14px;
-      border-radius:25px;
-      color:#111;
-      background:
-        linear-gradient(135deg,rgba(216,179,107,.28),rgba(255,255,255,.85)),
-        #fff;
-      border:1px solid #e8d8b7;
-      text-align:center;
-      font-size:24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 2px;
+      font-size:20px;
+      color:var(--brown2);
       font-weight:1000;
-      letter-spacing:-.4px;
     }
 
-    .bigBtn{
+    .checkout{
       width:100%;
-      min-height:50px;
-      margin-top:9px;
-      border-radius:999px;
-      color:#fff;
-      background:var(--black);
-      font-weight:1000;
-      box-shadow:0 12px 26px rgba(0,0,0,.16);
-    }
-
-    .bigBtn.gold{
-      color:#111;
-      background:linear-gradient(135deg,var(--gold2),#fff0c8);
-    }
-
-    .bigBtn.light{
-      color:var(--black);
-      background:#fff;
-      border:1px solid var(--line);
-      box-shadow:0 8px 18px rgba(20,20,20,.05);
-    }
-
-    .bigBtn.danger{
-      color:var(--danger);
-      background:#fff;
-      border:1px solid #efd3d3;
-      box-shadow:none;
-    }
-
-    .bigBtn:disabled{
-      color:#948d82;
-      background:#e7e1d8;
-      box-shadow:none;
-    }
-
-    .form input{
-      width:100%;
-      height:52px;
-      margin-top:9px;
-      padding:0 14px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      outline:none;
-      background:#fff;
-      color:var(--text);
-    }
-
-    .form input:focus{
-      border-color:var(--gold);
-      box-shadow:0 0 0 4px rgba(185,139,63,.13);
-    }
-
-    .codeBox{
-      white-space:pre-wrap;
-      word-break:break-word;
-      margin-top:10px;
-      padding:14px;
-      border-radius:18px;
-      color:#222;
-      background:#f8f5ef;
-      border:1px dashed #cbb890;
-      font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-      font-size:13px;
-      line-height:1.55;
-    }
-
-    .empty{
-      grid-column:1/-1;
-      padding:34px 18px;
-      border-radius:28px;
-      color:var(--muted);
-      background:rgba(255,255,255,.86);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow2);
-      text-align:center;
-      font-weight:900;
-      line-height:1.6;
-    }
-
-    .loading{
-      padding:32px 0;
-      color:var(--muted);
-      text-align:center;
-      font-weight:1000;
-    }
-
-    .spinner{
-      width:36px;
-      height:36px;
-      margin:0 auto 13px;
-      border-radius:50%;
-      border:4px solid #e9e1d6;
-      border-top-color:var(--black);
-      animation:spin .85s linear infinite;
-    }
-
-    @keyframes spin{
-      to{
-        transform:rotate(360deg);
-      }
+      border:none;
+      border-radius:21px;
+      padding:16px;
+      background:linear-gradient(145deg,var(--brown2),var(--brown));
+      color:var(--cream);
+      font-size:16px;
+      font-weight:950;
+      box-shadow:0 13px 28px rgba(43,22,12,.23);
     }
 
     .toast{
       position:fixed;
       left:50%;
-      bottom:96px;
-      z-index:999;
-      max-width:86vw;
-      padding:12px 16px;
-      border-radius:999px;
-      color:#fff;
-      background:#111;
-      box-shadow:0 14px 34px rgba(0,0,0,.25);
-      text-align:center;
-      font-size:13px;
-      font-weight:1000;
-      transform:translateX(-50%) translateY(12px);
+      bottom:101px;
+      transform:translateX(-50%) translateY(20px);
+      max-width:calc(100% - 30px);
+      z-index:200;
       opacity:0;
       pointer-events:none;
-      transition:.2s ease;
+      transition:.22s;
+      background:#241107;
+      color:var(--cream);
+      border:1px solid rgba(255,250,242,.12);
+      border-radius:999px;
+      padding:13px 16px;
+      box-shadow:0 14px 28px rgba(0,0,0,.28);
+      font-size:14px;
+      font-weight:850;
+      text-align:center;
     }
 
     .toast.show{
@@ -845,944 +799,679 @@
       transform:translateX(-50%) translateY(0);
     }
 
-    @media(max-width:370px){
+    @keyframes shine{
+      to{background-position:-200% 0}
+    }
+
+    @keyframes showUp{
+      from{opacity:0;transform:translateY(10px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    @keyframes slideIn{
+      from{transform:translateX(-100%)}
+      to{transform:translateX(0)}
+    }
+
+    @keyframes sheetUp{
+      from{transform:translateY(100%)}
+      to{transform:translateY(0)}
+    }
+
+    @media (min-width:481px){
+      body{
+        background:#ead6bf;
+      }
+
       .app{
-        padding-left:10px;
-        padding-right:10px;
-      }
-
-      .grid{
-        gap:10px;
-      }
-
-      .productImage{
-        height:138px;
-      }
-
-      h1{
-        font-size:30px;
-      }
-
-      .hero{
-        padding:19px 15px;
+        background:
+          radial-gradient(circle at top left, rgba(197,150,92,.24), transparent 30%),
+          linear-gradient(180deg,#2b160c 0,#432313 145px,#fbf3e8 340px);
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="app">
-    <div class="top">
-      <div class="brandBar">
-        <div class="logo">
-          <div class="logoMark">426</div>
-          <div class="logoText">
-            <b>426 SHOP</b>
-            <span>Premium Digital Store</span>
-          </div>
-        </div>
+  <main class="app">
+    <header class="topbar">
+      <button class="icon-btn" onclick="openDrawer()" aria-label="เปิดเมนู">
+        <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </button>
 
-        <button class="cartMini" onclick="openCart()">
-          ตะกร้า <span id="cartCount">0</span>
+      <div class="brand">
+        <h1>426 PREMIUM APPS</h1>
+        <p>แอพพรีเมียมพร้อมใช้งาน</p>
+      </div>
+
+      <button class="icon-btn" onclick="openCart()" aria-label="เปิดตะกร้า">
+        <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+          <path d="M6 6h15l-2 9H8L6 3H3" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm9 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" stroke="currentColor" stroke-width="2.1"/>
+        </svg>
+        <span class="badge" id="cartCount">0</span>
+      </button>
+    </header>
+
+    <section class="search">
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+        <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input id="searchInput" type="search" placeholder="ค้นหาแอพ แพ็กเกจ หรือหมวดหมู่" oninput="applyFilter()">
+    </section>
+
+    <section class="hero">
+      <div class="hero-label"><span></span> PREMIUM DIGITAL STORE</div>
+      <h2>แอพพรีเมียม ใช้งานง่าย พร้อมจัดส่ง</h2>
+      <p>เลือกแพ็กเกจที่ต้องการ เพิ่มลงตะกร้า แล้วส่งคำสั่งซื้อได้ทันที</p>
+
+      <div class="hero-actions">
+        <button class="primary" onclick="scrollToProducts()">ดูแพ็กเกจ</button>
+        <button class="secondary" onclick="focusSearch()">ค้นหาแอพ</button>
+      </div>
+    </section>
+
+    <section class="trust-row">
+      <div class="trust-card">
+        <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3 20 7v6c0 5-3.5 7.5-8 8-4.5-.5-8-3-8-8V7l8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="m8.8 12 2.1 2.1 4.6-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <b>แพ็กเกจชัดเจน</b>
+        <span>เลือกง่าย</span>
+      </div>
+
+      <div class="trust-card">
+        <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+          <path d="M13 3 4 14h7l-1 7 10-12h-7l1-6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <b>ส่งข้อมูลไว</b>
+        <span>พร้อมใช้งาน</span>
+      </div>
+
+      <div class="trust-card">
+        <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+          <path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M6 11h12v10H6V11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <b>ข้อมูลปลอดภัย</b>
+        <span>ไม่ต้องล็อกอิน</span>
+      </div>
+    </section>
+
+    <section class="category-wrap">
+      <div class="categories" id="categoryList">
+        <button class="cat active" onclick="selectCategory('all')">
+          <div class="cat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M4 5h16v14H4V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span>ทั้งหมด</span>
         </button>
       </div>
+    </section>
 
-      <section class="hero">
-        <div class="heroContent">
-          <div class="badge"><i class="dot"></i> Online Store พร้อมใช้งาน</div>
-          <h1>เลือกสินค้า<br>รับทันทีบนเว็บ</h1>
-          <p>ประสบการณ์สั่งซื้อแบบเรียบหรู รวดเร็ว และใช้งานง่ายเหมือนร้านแบรนด์ใหญ่</p>
-
-          <div class="heroActions">
-            <button class="heroBtn primary" onclick="scrollToProducts()">ดูสินค้า</button>
-            <button class="heroBtn secondary" onclick="openReceive()">รับสินค้า</button>
-          </div>
-        </div>
-      </section>
-
-      <div class="metricRow">
-        <div class="metric">
-          <b id="statProducts">0</b>
-          <span>สินค้า</span>
-        </div>
-        <div class="metric">
-          <b id="statReady">0</b>
-          <span>พร้อมขาย</span>
-        </div>
-        <div class="metric">
-          <b>FAST</b>
-          <span>ใช้งานไว</span>
-        </div>
+    <section id="productsSection">
+      <div class="section-head">
+        <h3>แพ็กเกจแนะนำ</h3>
+        <button onclick="selectCategory('all')">ดูทั้งหมด</button>
       </div>
 
-      <div class="searchWrap">
-        <span class="searchIcon">⌕</span>
-        <input id="searchInput" placeholder="ค้นหาสินค้าที่ต้องการ" oninput="handleSearch()">
-        <button class="clearSearch" id="clearSearch" onclick="clearSearch()">×</button>
-      </div>
+      <div id="status"></div>
+      <div class="products" id="products"></div>
+    </section>
 
-      <div class="tabs">
-        <button class="tab active" onclick="setFilter('all',this)">ทั้งหมด</button>
-        <button class="tab" onclick="setFilter('ready',this)">พร้อมขาย</button>
-        <button class="tab" onclick="setFilter('promo',this)">โปรโมชัน</button>
-        <button class="tab" onclick="setFilter('option',this)">มีตัวเลือก</button>
-      </div>
-    </div>
+    <section class="promo">
+      <small>PREMIUM SERVICE</small>
+      <h3>จัดการออเดอร์ผ่าน Google Sheet ได้เหมือนเดิม</h3>
+      <p>หน้าเว็บนี้ใช้ข้อมูลจากระบบร้านเดิม เหมาะกับการขายแอพ บัญชี แพ็กเกจ และบริการดิจิทัล</p>
+      <button class="primary" onclick="scrollToProducts()">เลือกแพ็กเกจ</button>
+    </section>
+  </main>
 
-    <div class="sectionTitle" id="productsSection">
-      <h2>สินค้าแนะนำ</h2>
-      <span id="resultCount">กำลังโหลด...</span>
-    </div>
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="scrollTopPage()">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M4 10.5 12 4l8 6.5V20H5v-9.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+      <span>หน้าหลัก</span>
+    </button>
 
-    <div id="productGrid" class="grid">
-      <div class="empty">
-        <div class="spinner"></div>
-        กำลังโหลดสินค้า...
-      </div>
+    <button class="nav-item" onclick="focusSearch()">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>ค้นหา</span>
+    </button>
+
+    <button class="nav-item center" onclick="scrollToProducts()">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M6 4h12v16H6V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M9 8h6M9 12h6M9 16h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>แพ็กเกจ</span>
+    </button>
+
+    <button class="nav-item" onclick="openOrders()">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M7 4h10v16H7V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M9.5 8h5M9.5 12h5M9.5 16h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>คำสั่งซื้อ</span>
+    </button>
+
+    <button class="nav-item" onclick="openCart()">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M6 6h15l-2 9H8L6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>ตะกร้า</span>
+    </button>
+  </nav>
+
+  <div class="drawer" id="drawer" onclick="closeDrawer(event)">
+    <div class="drawer-panel">
+      <h2>426 Premium Apps</h2>
+      <p>ร้านแอพพรีเมียมและบริการดิจิทัล</p>
+
+      <button onclick="scrollTopPage();hideDrawer()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M4 10.5 12 4l8 6.5V20H5v-9.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        หน้าหลัก
+      </button>
+
+      <button onclick="scrollToProducts();hideDrawer()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M6 4h12v16H6V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M9 8h6M9 12h6M9 16h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        แพ็กเกจทั้งหมด
+      </button>
+
+      <button onclick="openCart();hideDrawer()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M6 6h15l-2 9H8L6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        ตะกร้าสินค้า
+      </button>
+
+      <button onclick="openOrders();hideDrawer()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M7 4h10v16H7V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M9.5 8h5M9.5 12h5M9.5 16h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        คำสั่งซื้อ
+      </button>
     </div>
   </div>
 
-  <div class="bottomNav">
-    <div class="bottomInner">
-      <button class="navBtn light" onclick="openReceive()">รับสินค้า</button>
-      <button class="navBtn dark" onclick="openCart()">ชำระเงิน <span id="bottomCartText"></span></button>
-    </div>
-  </div>
-
-  <div class="modal" id="modal" onclick="backdropClose(event)">
+  <div class="modal" id="cartModal">
     <div class="sheet">
-      <div class="handle"></div>
-      <div class="sheetHead">
-        <h2 id="modalTitle">ตะกร้า</h2>
-        <button class="x" onclick="closeModal()">×</button>
+      <div class="sheet-head">
+        <h3>ตะกร้าสินค้า</h3>
+        <button class="close" onclick="closeCart()">×</button>
       </div>
-      <div id="modalBody"></div>
+
+      <div id="cartItems"></div>
+
+      <div class="total">
+        <span>รวมทั้งหมด</span>
+        <span id="cartTotal">฿0</span>
+      </div>
+
+      <button class="checkout" onclick="checkout()">ส่งคำสั่งซื้อ</button>
     </div>
   </div>
 
   <div class="toast" id="toast"></div>
 
-<script>
-  /************************************************************
-   * ใส่ Web App URL ของ Apps Script ตรงนี้
-   * ต้องลงท้ายด้วย /exec
-   ************************************************************/
-  const API_URL = 'https://script.google.com/macros/s/AKfycbztTN5lqIKWg0AH4WrTjepTAyHGmwihefg8_rdu0t6RSgYc049wVhhgkm6wF162kcOl/exec';
+  <script>
+    const API_URL = 'https://script.google.com/macros/s/AKfycbztTN5lqIKWg0AH4WrTjepTAyHGmwihefg8_rdu0t6RSgYc049wVhhgkm6wF162kcOl/exec';
 
-  let products = [];
-  let cart = loadCart();
-  let lastOrder = loadLastOrder();
-  let currentFilter = 'all';
-  let bankCache = {};
+    let products = [];
+    let filteredProducts = [];
+    let categories = [];
+    let currentCategory = 'all';
+    let cart = JSON.parse(localStorage.getItem('426_premium_cart') || '[]');
 
-  const $ = id => document.getElementById(id);
+    const fallbackImages = [
+      'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=700&q=80',
+      'https://images.unsplash.com/photo-1517292987719-0369a794ec0f?auto=format&fit=crop&w=700&q=80'
+    ];
 
-  function normalizeApiUrl(){
-    let url = String(API_URL || '').trim();
+    const categoryIcons = [
+      `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 5h14v14H5V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+      `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M7 4h10v16H7V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+      `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 11h8M8 14h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+      `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3 20 7v6c0 5-3.5 7.5-8 8-4.5-.5-8-3-8-8V7l8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+      `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M13 3 4 14h7l-1 7 10-12h-7l1-6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`
+    ];
 
-    if (!url || url.includes('ใส่ URL')) {
-      throw new Error('ยังไม่ได้ใส่ API_URL ใน index.html');
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartCount();
+      loadProducts();
+    });
 
-    return url.replace('/dev','/exec');
-  }
-
-  function api(action, params = {}){
-    return new Promise((resolve, reject) => {
-      let base;
+    async function loadProducts(){
+      setLoading();
 
       try{
-        base = normalizeApiUrl();
-      }catch(e){
-        reject(e);
-        return;
-      }
-
-      const callback = 'WEB426_' + Date.now() + '_' + Math.floor(Math.random() * 1000000);
-      const q = new URLSearchParams();
-
-      q.set('action', action);
-      q.set('callback', callback);
-      q.set('_', Date.now());
-
-      Object.keys(params || {}).forEach(k => {
-        if (params[k] !== undefined && params[k] !== null) q.set(k, params[k]);
-      });
-
-      let done = false;
-      let script = document.createElement('script');
-
-      const timer = setTimeout(() => {
-        if (done) return;
-        done = true;
-        cleanup();
-
-        fetchApi(base, action, params)
-          .then(resolve)
-          .catch(() => reject(new Error('เชื่อมต่อ API ไม่สำเร็จ กรุณาตรวจสอบ URL Web App /exec และ doGet JSONP')));
-      }, 9000);
-
-      function cleanup(){
-        clearTimeout(timer);
-        try{ delete window[callback]; }catch(e){ window[callback] = undefined; }
-        if (script && script.parentNode) script.parentNode.removeChild(script);
-      }
-
-      window[callback] = data => {
-        if (done) return;
-        done = true;
-        cleanup();
-        resolve(data || {});
-      };
-
-      script.onerror = () => {
-        if (done) return;
-        done = true;
-        cleanup();
-
-        fetchApi(base, action, params)
-          .then(resolve)
-          .catch(() => reject(new Error('เชื่อมต่อ API ไม่สำเร็จ กรุณาตรวจสอบสิทธิ์ Deploy เป็น Anyone')));
-      };
-
-      script.src = base + '?' + q.toString();
-      document.body.appendChild(script);
-    });
-  }
-
-  async function fetchApi(base, action, params){
-    const q = new URLSearchParams();
-    q.set('action', action);
-    q.set('_', Date.now());
-
-    Object.keys(params || {}).forEach(k => {
-      if (params[k] !== undefined && params[k] !== null) q.set(k, params[k]);
-    });
-
-    const res = await fetch(base + '?' + q.toString(), {
-      method:'GET',
-      cache:'no-store',
-      redirect:'follow'
-    });
-
-    const text = await res.text();
-
-    try{
-      return JSON.parse(text);
-    }catch(e){
-      const m = text.match(/\(([\s\S]*)\)\s*;?\s*$/);
-      if (m) return JSON.parse(m[1]);
-      throw new Error('API ไม่ได้ส่งข้อมูล JSON');
-    }
-  }
-
-  function money(n){
-    n = Number(n || 0);
-    return n.toLocaleString('th-TH',{maximumFractionDigits:2});
-  }
-
-  function loadCart(){
-    try{return JSON.parse(localStorage.getItem('426_web_cart') || '[]')}
-    catch(e){return []}
-  }
-
-  function saveCart(){
-    localStorage.setItem('426_web_cart', JSON.stringify(cart));
-    updateCartCount();
-  }
-
-  function loadLastOrder(){
-    try{return JSON.parse(localStorage.getItem('426_web_last_order') || '{}')}
-    catch(e){return {}}
-  }
-
-  function saveLastOrder(o){
-    lastOrder = o || {};
-    localStorage.setItem('426_web_last_order', JSON.stringify(lastOrder));
-  }
-
-  function sessionId(){
-    let id = localStorage.getItem('426_web_session');
-
-    if (!id){
-      id = 'WEB-' + Date.now() + '-' + Math.floor(Math.random() * 1000000);
-      localStorage.setItem('426_web_session', id);
-    }
-
-    return id;
-  }
-
-  function updateCartCount(){
-    const count = cart.reduce((s,x) => s + Number(x.qty || 0), 0);
-    $('cartCount').textContent = count;
-    $('bottomCartText').textContent = count ? '(' + count + ')' : '';
-  }
-
-  async function loadCatalog(){
-    updateCartCount();
-
-    const cache = localStorage.getItem('426_web_catalog_cache');
-
-    if (cache){
-      try{
-        const c = JSON.parse(cache);
-
-        if (Date.now() - c.t < 120000){
-          products = Array.isArray(c.products) ? c.products : [];
-          bankCache = c.bank || {};
-          updateStats();
-          renderProducts();
+        if(!API_URL || API_URL.includes('ใส่ลิงก์')){
+          throw new Error('ยังไม่ได้ใส่ API_URL');
         }
-      }catch(e){}
-    }
 
-    try{
-      const res = await api('catalog');
+        const url = API_URL + '?action=getProducts&ts=' + Date.now();
+        const res = await fetch(url, { method:'GET' });
 
-      if (!res || res.ok === false){
-        throw new Error((res && res.message) || 'โหลดสินค้าไม่สำเร็จ');
-      }
+        if(!res.ok){
+          throw new Error('HTTP ' + res.status);
+        }
 
-      products = normalizeProducts(res.products || res.items || res.data || []);
-      bankCache = res.bank || res.payment || {};
+        const data = await res.json();
+        const list = normalizeProducts(data);
 
-      localStorage.setItem('426_web_catalog_cache', JSON.stringify({
-        t:Date.now(),
-        products,
-        bank:bankCache
-      }));
+        products = list.length ? list : demoProducts();
+        categories = buildCategories(products);
+        filteredProducts = [...products];
 
-      updateStats();
-      renderProducts();
+        renderCategories();
+        renderProducts();
+        clearStatus();
 
-    }catch(e){
-      if (!products.length){
-        $('productGrid').innerHTML = `
-          <div class="empty">
-            ${escapeHtml(e.message)}<br><br>
-            ตรวจสอบว่า Web App เป็นลิงก์ /exec และ Deploy เป็น Anyone
+      }catch(err){
+        console.warn(err);
+
+        products = demoProducts();
+        categories = buildCategories(products);
+        filteredProducts = [...products];
+
+        renderCategories();
+        renderProducts();
+
+        document.getElementById('status').innerHTML = `
+          <div class="error">
+            <b>เชื่อมต่อข้อมูลร้านไม่สำเร็จ</b><br>
+            ตอนนี้แสดงข้อมูลตัวอย่างก่อน กรุณาตรวจสอบลิงก์ API หรือ Deploy Web App ใหม่
+            <br><br>
+            <button class="primary" onclick="loadProducts()">ลองใหม่</button>
           </div>
+          <br>
         `;
-        $('resultCount').textContent = 'โหลดไม่สำเร็จ';
-      }else{
-        toast(e.message);
       }
     }
-  }
 
-  function normalizeProducts(list){
-    return (list || []).map((p,i) => {
-      const id = String(p.id || p.productId || p.productID || p.code || p.sku || ('P' + i));
-      const price = Number(p.price || p.salePrice || p.normalPrice || 0);
-      const qty = Number(p.quantity || p.qty || p.stock || 0);
+    function normalizeProducts(data){
+      let rows = [];
 
-      return {
-        ...p,
-        id,
-        name:String(p.name || p.productName || p.title || ''),
-        detail:String(p.detail || p.description || p.desc || ''),
-        imageUrl:String(p.imageUrl || p.image || p.img || p.picture || ''),
-        price,
-        priceText:p.priceText || ('฿' + money(price)),
-        quantity:qty,
-        saleOpenNow:p.saleOpenNow !== false && p.saleOpen !== false && p.status !== 'ปิดขาย',
-        hasOptions:!!(p.hasOptions || p.optionsCount || p.optionCount),
-        promoEligible:!!(p.promoEligible || p.promo || p.isPromo)
-      };
-    });
-  }
+      if(Array.isArray(data)) rows = data;
+      else if(Array.isArray(data.products)) rows = data.products;
+      else if(Array.isArray(data.data)) rows = data.data;
+      else if(data.result && Array.isArray(data.result)) rows = data.result;
 
-  function updateStats(){
-    const ready = products.filter(p => Number(p.quantity || 0) > 0 && p.saleOpenNow !== false).length;
+      return rows.map((p, i) => {
+        const name = pick(p, ['name','productName','สินค้า','ชื่อสินค้า','title']) || `แพ็กเกจ ${i+1}`;
+        const price = Number(pick(p, ['price','ราคา','sellPrice','amount']) || 0);
+        const category = pick(p, ['category','หมวดหมู่','type']) || 'แอพพรีเมียม';
+        const image = pick(p, ['image','imageUrl','รูปภาพ','img','photo','picture']) || fallbackImages[i % fallbackImages.length];
+        const stock = pick(p, ['stock','คงเหลือ','qty','quantity']) ?? '';
+        const id = pick(p, ['id','sku','รหัสสินค้า','code']) || String(i + 1);
+        const desc = pick(p, ['description','รายละเอียด','detail','details','desc']) || 'แพ็กเกจพร้อมใช้งาน เลือกจำนวนแล้วส่งคำสั่งซื้อได้ทันที';
 
-    $('statProducts').textContent = products.length;
-    $('statReady').textContent = ready;
-  }
-
-  function scrollToProducts(){
-    $('productsSection').scrollIntoView({behavior:'smooth',block:'start'});
-  }
-
-  function handleSearch(){
-    $('clearSearch').style.display = $('searchInput').value.trim() ? 'block' : 'none';
-    renderProducts();
-  }
-
-  function clearSearch(){
-    $('searchInput').value = '';
-    $('clearSearch').style.display = 'none';
-    renderProducts();
-  }
-
-  function setFilter(filter,btn){
-    currentFilter = filter;
-    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-    btn.classList.add('active');
-    renderProducts();
-  }
-
-  function filteredProducts(){
-    const q = $('searchInput').value.trim().toLowerCase();
-    let list = products.slice();
-
-    if (q){
-      list = list.filter(p =>
-        String(p.name || '').toLowerCase().includes(q) ||
-        String(p.detail || '').toLowerCase().includes(q) ||
-        String(p.id || '').toLowerCase().includes(q)
-      );
+        return {
+          id:String(id),
+          name:String(name),
+          price,
+          category:String(category),
+          image:String(image),
+          stock,
+          desc:String(desc)
+        };
+      }).filter(p => p.name);
     }
 
-    if (currentFilter === 'ready'){
-      list = list.filter(p => Number(p.quantity || 0) > 0 && p.saleOpenNow !== false);
+    function pick(obj, keys){
+      for(const k of keys){
+        if(obj && obj[k] !== undefined && obj[k] !== null && obj[k] !== ''){
+          return obj[k];
+        }
+      }
+      return '';
     }
 
-    if (currentFilter === 'promo'){
-      list = list.filter(p => p.promoEligible);
+    function demoProducts(){
+      return [
+        {
+          id:'demo1',
+          name:'YouTube Premium',
+          price:79,
+          category:'วิดีโอและเพลง',
+          stock:20,
+          desc:'แพ็กเกจพรีเมียมรายเดือน พร้อมจัดส่งข้อมูลหลังสั่งซื้อ',
+          image:'https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id:'demo2',
+          name:'Canva Pro',
+          price:99,
+          category:'งานออกแบบ',
+          stock:15,
+          desc:'เหมาะสำหรับงานกราฟิก โพสต์ขายของ และคอนเทนต์ออนไลน์',
+          image:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id:'demo3',
+          name:'CapCut Pro',
+          price:129,
+          category:'ตัดต่อวิดีโอ',
+          stock:12,
+          desc:'สำหรับตัดต่อวิดีโอ ทำคลิปสั้น และคอนเทนต์โซเชียล',
+          image:'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=700&q=80'
+        },
+        {
+          id:'demo4',
+          name:'Netflix Premium',
+          price:159,
+          category:'สตรีมมิง',
+          stock:8,
+          desc:'แพ็กเกจรับชมความบันเทิง ใช้งานง่ายบนหลายอุปกรณ์',
+          image:'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=700&q=80'
+        }
+      ];
     }
 
-    if (currentFilter === 'option'){
-      list = list.filter(p => p.hasOptions);
+    function buildCategories(list){
+      return [...new Set(list.map(p => p.category).filter(Boolean))];
     }
 
-    return list;
-  }
+    function renderCategories(){
+      const allIcon = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
 
-  function renderProducts(){
-    const list = filteredProducts();
-
-    $('resultCount').textContent = list.length + ' รายการ';
-
-    if (!list.length){
-      $('productGrid').innerHTML = `
-        <div class="empty">
-          ไม่พบสินค้า<br>
-          ลองค้นหาด้วยคำอื่น หรือเลือกหมวดทั้งหมด
-        </div>
-      `;
-      return;
-    }
-
-    $('productGrid').innerHTML = list.map((p,index) => {
-      const qty = Number(p.quantity || 0);
-      const disabled = !p.saleOpenNow || qty <= 0;
-      const badge = p.hasOptions ? 'OPTIONS' : (p.promoEligible ? 'PROMO' : 'READY');
-
-      return `
-        <article class="card" style="animation-delay:${Math.min(index * .025,.24)}s">
-          <div class="productImage">
-            <span class="tag">${escapeHtml(badge)}</span>
-            <img loading="lazy"
-              src="${escapeAttr(p.imageUrl || '')}"
-              onerror="this.src='https://placehold.co/420x420/F4EFE6/111111?text=426+SHOP'">
-          </div>
-
-          <div class="productName">${escapeHtml(p.name)}</div>
-          <div class="productDesc">${escapeHtml(p.detail || 'เลือกสินค้าเพื่อสั่งซื้อ')}</div>
-          <div class="price">${escapeHtml(p.priceText || ('฿' + money(p.price)))}</div>
-
-          <div class="stock">
-            <i class="${disabled ? 'out' : ''}"></i>
-            <span>${disabled ? 'สินค้าหมดหรือปิดขาย' : 'คงเหลือ ' + qty}</span>
-          </div>
-
-          <button class="buy" ${disabled ? 'disabled' : ''} onclick="selectProduct('${escapeAttr(p.id)}')">
-            ${p.hasOptions ? 'เลือกตัวเลือก' : 'เพิ่มลงตะกร้า'}
+      const html = `
+        <button class="cat ${currentCategory === 'all' ? 'active' : ''}" onclick="selectCategory('all')">
+          <div class="cat-icon">${allIcon}</div>
+          <span>ทั้งหมด</span>
+        </button>
+        ${categories.map((c,i) => `
+          <button class="cat ${currentCategory === c ? 'active' : ''}" onclick="selectCategory('${escapeJs(c)}')">
+            <div class="cat-icon">${categoryIcons[i % categoryIcons.length]}</div>
+            <span>${escapeHtml(c)}</span>
           </button>
-        </article>
+        `).join('')}
       `;
-    }).join('');
-  }
 
-  async function selectProduct(productId){
-    const p = products.find(x => String(x.id) === String(productId));
-
-    if (!p) return;
-
-    if (p.hasOptions){
-      openOptions(p);
-      return;
+      document.getElementById('categoryList').innerHTML = html;
     }
 
-    addToCart({
-      productId:p.id,
-      stockProductId:p.id,
-      optionId:'',
-      name:p.name,
-      price:Number(p.price || 0),
-      imageUrl:p.imageUrl || '',
-      qty:1
-    });
+    function renderProducts(){
+      const box = document.getElementById('products');
 
-    toast('เพิ่มลงตะกร้าแล้ว');
-  }
-
-  async function openOptions(product){
-    openModal('เลือกตัวเลือก', loadingHtml('กำลังโหลดตัวเลือก...'));
-
-    try{
-      const res = await api('options',{productId:product.id});
-
-      if (!res || res.ok === false){
-        throw new Error((res && res.message) || 'โหลดตัวเลือกไม่สำเร็จ');
-      }
-
-      const options = normalizeOptions(res.options || res.items || [], product);
-
-      if (!options.length){
-        $('modalBody').innerHTML = `
-          <div class="notice warn">ยังไม่มีตัวเลือกสินค้า</div>
-          <button class="bigBtn light" onclick="closeModal()">ปิด</button>
+      if(!filteredProducts.length){
+        box.innerHTML = '';
+        document.getElementById('status').innerHTML = `
+          <div class="empty">ไม่พบแพ็กเกจที่ค้นหา</div>
         `;
         return;
       }
 
-      $('modalBody').innerHTML = `
-        <div class="notice">
-          <b>${escapeHtml(product.name)}</b><br>
-          เลือกตัวเลือกที่ต้องการ
-        </div>
+      clearStatus();
 
-        ${options.map(o => {
-          const disabled = Number(o.quantity || 0) <= 0;
-          const item = {
-            productId:product.id,
-            optionId:o.optionId,
-            stockProductId:o.stockProductId,
-            name:product.name + ' - ' + o.name,
-            price:Number(o.price || 0),
-            imageUrl:o.imageUrl || product.imageUrl || '',
-            qty:1
-          };
-
-          return `
-            <div class="row">
-              <div class="rowTop">
-                <div>
-                  <div class="rowName">${escapeHtml(o.name)}</div>
-                  <div class="rowMeta">${escapeHtml(o.detail || '')}</div>
-                  <div class="rowMeta">${disabled ? 'คงเหลือ 0' : 'คงเหลือ ' + Number(o.quantity || 0)}</div>
-                </div>
-                <b>฿${money(o.price)}</b>
-              </div>
-
-              <button class="bigBtn ${disabled ? 'light' : 'gold'}"
-                ${disabled ? 'disabled' : ''}
-                onclick='addOption(${JSON.stringify(item).replace(/'/g,"&#39;")})'>
-                ${disabled ? 'สินค้าหมด' : 'เพิ่มลงตะกร้า'}
+      box.innerHTML = filteredProducts.map((p, i) => `
+        <article class="product" style="animation-delay:${Math.min(i * 0.03, .25)}s">
+          <div class="product-img-wrap">
+            ${p.stock !== '' ? `<div class="plan-tag">คงเหลือ ${escapeHtml(String(p.stock))}</div>` : ''}
+            <img class="product-img" src="${escapeAttr(p.image)}" alt="${escapeAttr(p.name)}" loading="lazy" onerror="this.src='${fallbackImages[i % fallbackImages.length]}'">
+          </div>
+          <div class="product-body">
+            <p class="product-name">${escapeHtml(p.name)}</p>
+            <p class="product-desc">${escapeHtml(p.desc || '')}</p>
+            <div class="product-meta">
+              <div class="price">${formatMoney(p.price)}</div>
+              <button class="cart-btn" onclick="addToCart('${escapeJs(p.id)}')" aria-label="เพิ่มลงตะกร้า">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 6h15l-2 9H8L6 3H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm9 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" stroke="currentColor" stroke-width="2"/>
+                </svg>
               </button>
             </div>
-          `;
-        }).join('')}
-      `;
-
-    }catch(e){
-      $('modalBody').innerHTML = `
-        <div class="notice warn">${escapeHtml(e.message)}</div>
-        <button class="bigBtn light" onclick="closeModal()">ปิด</button>
-      `;
-    }
-  }
-
-  function normalizeOptions(list, product){
-    return (list || []).map((o,i) => {
-      const price = Number(o.price || o.salePrice || product.price || 0);
-      const qty = Number(o.quantity || o.qty || o.stock || 0);
-
-      return {
-        ...o,
-        optionId:String(o.optionId || o.id || o.optionCode || ('O' + i)),
-        stockProductId:String(o.stockProductId || o.productId || product.id),
-        name:String(o.name || o.optionName || o.title || ''),
-        detail:String(o.detail || o.description || ''),
-        imageUrl:String(o.imageUrl || o.image || product.imageUrl || ''),
-        price,
-        quantity:qty
-      };
-    });
-  }
-
-  function addOption(item){
-    addToCart(item);
-    toast('เพิ่มลงตะกร้าแล้ว');
-    openCart();
-  }
-
-  function addToCart(item){
-    const key = String(item.optionId || item.stockProductId || item.productId);
-    const found = cart.find(x => String(x.optionId || x.stockProductId || x.productId) === key);
-
-    if (found){
-      found.qty = Number(found.qty || 0) + 1;
-    }else{
-      cart.push(item);
-    }
-
-    saveCart();
-  }
-
-  function openCart(){
-    openModal('ตะกร้าสินค้า', cartHtml());
-  }
-
-  function cartHtml(){
-    if (!cart.length){
-      return `
-        <div class="notice">
-          ยังไม่มีสินค้าในตะกร้า<br>
-          เลือกสินค้าที่ต้องการ แล้วกดชำระเงิน
-        </div>
-        <button class="bigBtn light" onclick="closeModal()">เลือกสินค้า</button>
-      `;
-    }
-
-    return `
-      ${cart.map((item,i) => `
-        <div class="row">
-          <div class="rowTop">
-            <div>
-              <div class="rowName">${escapeHtml(item.name)}</div>
-              <div class="rowMeta">฿${money(item.price)} / ชิ้น</div>
-            </div>
-            <b>฿${money(Number(item.price || 0) * Number(item.qty || 0))}</b>
           </div>
-
-          <div class="qty">
-            <button onclick="changeQty(${i},-1)">−</button>
-            <b>${Number(item.qty || 0)}</b>
-            <button onclick="changeQty(${i},1)">+</button>
-            <button class="remove" onclick="removeItem(${i})">ลบ</button>
-          </div>
-        </div>
-      `).join('')}
-
-      <div class="total">รวม ฿${money(cartTotal())}</div>
-      <button class="bigBtn gold" onclick="checkout()">สร้างออเดอร์</button>
-      <button class="bigBtn danger" onclick="clearCart()">ล้างตะกร้า</button>
-    `;
-  }
-
-  function cartTotal(){
-    return cart.reduce((s,x) => s + Number(x.price || 0) * Number(x.qty || 0), 0);
-  }
-
-  function changeQty(i,d){
-    cart[i].qty = Number(cart[i].qty || 0) + d;
-
-    if (cart[i].qty <= 0){
-      cart.splice(i,1);
+        </article>
+      `).join('');
     }
 
-    saveCart();
-    $('modalBody').innerHTML = cartHtml();
-  }
-
-  function removeItem(i){
-    cart.splice(i,1);
-    saveCart();
-    $('modalBody').innerHTML = cartHtml();
-  }
-
-  function clearCart(){
-    cart = [];
-    saveCart();
-    $('modalBody').innerHTML = cartHtml();
-  }
-
-  async function checkout(){
-    if (!cart.length){
-      openCart();
-      return;
+    function selectCategory(cat){
+      currentCategory = cat;
+      renderCategories();
+      applyFilter();
+      scrollToProducts();
     }
 
-    openModal('สร้างออเดอร์', loadingHtml('กำลังสร้างออเดอร์...'));
+    function applyFilter(){
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
 
-    const payload = {
-      channel:'WEB',
-      sessionId:sessionId(),
-      customerName:'ลูกค้าเว็บ',
-      phone:'',
-      email:'',
-      cart:cart.map(x => ({
-        productId:x.productId || '',
-        optionId:x.optionId || '',
-        stockProductId:x.stockProductId || '',
-        qty:Number(x.qty || 1)
-      }))
-    };
-
-    try{
-      const res = await api('checkout',{
-        payload:encodeURIComponent(JSON.stringify(payload))
+      filteredProducts = products.filter(p => {
+        const matchCat = currentCategory === 'all' || p.category === currentCategory;
+        const text = `${p.name} ${p.category} ${p.desc || ''}`.toLowerCase();
+        const matchQ = !q || text.includes(q);
+        return matchCat && matchQ;
       });
 
-      if (!res || res.ok === false){
-        throw new Error((res && res.message) || 'สร้างออเดอร์ไม่สำเร็จ');
+      renderProducts();
+    }
+
+    function addToCart(id){
+      const p = products.find(x => x.id === id);
+      if(!p) return;
+
+      const found = cart.find(x => x.id === id);
+      if(found){
+        found.qty += 1;
+      }else{
+        cart.push({...p, qty:1});
       }
 
-      const orderId = res.orderId || res.orderNo || res.id || '';
-      const auth = res.auth || res.token || res.receiveCode || '';
-
-      saveLastOrder({orderId,auth});
-
-      cart = [];
       saveCart();
-
-      renderPayment(res, orderId, auth);
-
-    }catch(e){
-      $('modalBody').innerHTML = `
-        <div class="notice warn">${escapeHtml(e.message)}</div>
-        <button class="bigBtn light" onclick="openCart()">กลับไปตะกร้า</button>
-      `;
-    }
-  }
-
-  function renderPayment(res, orderId, auth){
-    const bank = res.bank || bankCache || {};
-    const totalText = res.totalText || ('฿' + money(res.total || res.amount || 0));
-
-    $('modalTitle').textContent = 'ชำระเงิน';
-
-    $('modalBody').innerHTML = `
-      <div class="notice good">
-        สร้างออเดอร์สำเร็จ<br>
-        Order ID: <b>${escapeHtml(orderId)}</b>
-      </div>
-
-      <div class="total">${escapeHtml(totalText)}</div>
-
-      <div class="row">
-        <div class="rowName">บัญชีสำหรับโอนเงิน</div>
-        <div class="rowMeta">${escapeHtml(bank.bankName || bank.name || '')}</div>
-        <div class="rowMeta">${escapeHtml(bank.bankAccountName || bank.accountName || '')}</div>
-
-        <div style="font-size:24px;font-weight:1000;color:#111;margin-top:9px;letter-spacing:.2px">
-          ${escapeHtml(bank.bankAccountFormatted || bank.bankAccountNumber || bank.account || '')}
-        </div>
-
-        <button class="bigBtn gold" onclick="copyText('${escapeAttr(bank.bankAccountNumber || bank.account || '')}')">
-          คัดลอกเลขบัญชี
-        </button>
-      </div>
-
-      <div class="notice warn">
-        หลังโอนเงินแล้ว ให้แอดมินยืนยันชำระเงินในชีต จากนั้นกดรับสินค้า
-      </div>
-
-      <button class="bigBtn" onclick="receiveOrder('${escapeAttr(orderId)}','${escapeAttr(auth)}')">รับสินค้า</button>
-      <button class="bigBtn light" onclick="copyText('${escapeAttr(orderId + '|' + auth)}')">คัดลอกข้อมูลออเดอร์</button>
-    `;
-  }
-
-  function openReceive(){
-    openModal('รับสินค้า', `
-      <div class="notice">
-        ถ้าสั่งซื้อจากเครื่องนี้ ระบบจะจำออเดอร์ล่าสุดไว้ให้<br>
-        หรือกรอก Order ID และรหัสรับสินค้าเองได้
-      </div>
-
-      <div class="form">
-        <input id="lookupOrderId" placeholder="Order ID" value="${escapeAttr(lastOrder.orderId || '')}">
-        <input id="lookupAuth" placeholder="รหัสรับสินค้า" value="${escapeAttr(lastOrder.auth || '')}">
-      </div>
-
-      <button class="bigBtn gold" onclick="receiveByInput()">รับสินค้า</button>
-      <button class="bigBtn light" onclick="checkOrderByInput()">เช็กสถานะ</button>
-    `);
-  }
-
-  function receiveByInput(){
-    const orderId = $('lookupOrderId').value.trim();
-    const auth = $('lookupAuth').value.trim();
-
-    if (!orderId || !auth){
-      toast('กรุณากรอกข้อมูลให้ครบ');
-      return;
+      showToast('เพิ่มแพ็กเกจเข้าตะกร้าแล้ว');
     }
 
-    receiveOrder(orderId,auth);
-  }
-
-  async function checkOrderByInput(){
-    const orderId = $('lookupOrderId').value.trim();
-    const auth = $('lookupAuth').value.trim();
-
-    if (!orderId || !auth){
-      toast('กรุณากรอกข้อมูลให้ครบ');
-      return;
+    function openCart(){
+      renderCart();
+      document.getElementById('cartModal').classList.add('show');
     }
 
-    openModal('เช็กสถานะ', loadingHtml('กำลังเช็กสถานะ...'));
-
-    try{
-      const res = await api('order',{orderId,auth});
-
-      if (!res || res.ok === false){
-        throw new Error((res && res.message) || 'เช็กสถานะไม่สำเร็จ');
-      }
-
-      $('modalBody').innerHTML = `
-        <div class="notice">
-          Order ID: <b>${escapeHtml(res.orderId || orderId)}</b><br>
-          สถานะออเดอร์: <b>${escapeHtml(res.orderStatus || res.status || '')}</b><br>
-          สถานะชำระเงิน: <b>${escapeHtml(res.paymentStatus || '')}</b><br>
-          ยอดรวม: <b>${escapeHtml(res.totalText || '')}</b>
-        </div>
-
-        <button class="bigBtn gold" onclick="receiveOrder('${escapeAttr(orderId)}','${escapeAttr(auth)}')">รับสินค้า</button>
-        <button class="bigBtn light" onclick="openReceive()">กลับ</button>
-      `;
-
-    }catch(e){
-      $('modalBody').innerHTML = `
-        <div class="notice warn">${escapeHtml(e.message)}</div>
-        <button class="bigBtn light" onclick="openReceive()">กลับ</button>
-      `;
-    }
-  }
-
-  async function receiveOrder(orderId,auth){
-    if (!orderId || !auth){
-      openReceive();
-      return;
+    function closeCart(){
+      document.getElementById('cartModal').classList.remove('show');
     }
 
-    openModal('รับสินค้า', loadingHtml('กำลังจัดส่งสินค้า...'));
+    function renderCart(){
+      const box = document.getElementById('cartItems');
 
-    try{
-      const res = await api('receive',{orderId,auth});
-
-      if (!res || res.ok === false){
-        $('modalBody').innerHTML = `
-          <div class="notice warn">${escapeHtml((res && res.message) || 'ยังรับสินค้าไม่ได้')}</div>
-          <button class="bigBtn light" onclick="openReceive()">กลับไปเช็กอีกครั้ง</button>
-        `;
+      if(!cart.length){
+        box.innerHTML = `<div class="empty">ยังไม่มีแพ็กเกจในตะกร้า</div>`;
+        document.getElementById('cartTotal').textContent = '฿0';
         return;
       }
 
-      const items = res.items || res.codes || [];
-
-      $('modalTitle').textContent = 'สินค้าของคุณ';
-
-      $('modalBody').innerHTML = `
-        <div class="notice good">
-          ${escapeHtml(res.message || 'รับสินค้าเรียบร้อย')}<br>
-          Order ID: <b>${escapeHtml(res.orderId || orderId)}</b>
-        </div>
-
-        ${
-          items.length
-          ? items.map((it,i) => `
-            <div class="row">
-              <div class="rowName">${escapeHtml(it.name || it.productName || ('สินค้า ' + (i + 1)))}</div>
-              <div class="codeBox" id="code_${i}">${escapeHtml(it.code || it.value || it.text || '')}</div>
-              <button class="bigBtn gold" onclick="copyFromBox('code_${i}')">คัดลอกสินค้า</button>
+      box.innerHTML = cart.map(item => `
+        <div class="cart-line">
+          <img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.name)}">
+          <div>
+            <b>${escapeHtml(item.name)}</b><br>
+            <span>${formatMoney(item.price)}</span>
+            <div class="qty">
+              <button onclick="changeQty('${escapeJs(item.id)}',-1)">−</button>
+              <b>${item.qty}</b>
+              <button onclick="changeQty('${escapeJs(item.id)}',1)">+</button>
             </div>
-          `).join('')
-          : `<div class="notice warn">ไม่พบรายการสินค้าในออเดอร์นี้</div>`
+          </div>
+          <button class="close" onclick="removeCart('${escapeJs(item.id)}')">×</button>
+        </div>
+      `).join('');
+
+      const total = cart.reduce((sum, item) => sum + Number(item.price || 0) * item.qty, 0);
+      document.getElementById('cartTotal').textContent = formatMoney(total);
+    }
+
+    function changeQty(id, delta){
+      const item = cart.find(x => x.id === id);
+      if(!item) return;
+
+      item.qty += delta;
+
+      if(item.qty <= 0){
+        cart = cart.filter(x => x.id !== id);
+      }
+
+      saveCart();
+      renderCart();
+    }
+
+    function removeCart(id){
+      cart = cart.filter(x => x.id !== id);
+      saveCart();
+      renderCart();
+    }
+
+    function saveCart(){
+      localStorage.setItem('426_premium_cart', JSON.stringify(cart));
+      updateCartCount();
+    }
+
+    function updateCartCount(){
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartCount').textContent = count;
+    }
+
+    async function checkout(){
+      if(!cart.length){
+        showToast('กรุณาเลือกแพ็กเกจก่อน');
+        return;
+      }
+
+      const orderText = cart.map(item => `- ${item.name} x${item.qty} = ${formatMoney(item.price * item.qty)}`).join('\n');
+      const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      const payload = {
+        action:'createOrder',
+        items:cart,
+        total,
+        note:'สั่งซื้อจากหน้าเว็บ Premium Apps'
+      };
+
+      try{
+        if(API_URL && !API_URL.includes('ใส่ลิงก์')){
+          await fetch(API_URL, {
+            method:'POST',
+            mode:'no-cors',
+            headers:{ 'Content-Type':'application/json' },
+            body:JSON.stringify(payload)
+          });
         }
 
-        ${items.length ? `<button class="bigBtn light" onclick="copyAllItems()">คัดลอกทั้งหมด</button>` : ''}
+        await copyText(`รายการสั่งซื้อ\n${orderText}\nรวม ${formatMoney(total)}`);
+
+        cart = [];
+        saveCart();
+        renderCart();
+        showToast('ส่งคำสั่งซื้อแล้ว และคัดลอกรายการให้แล้ว');
+      }catch(err){
+        console.warn(err);
+        await copyText(`รายการสั่งซื้อ\n${orderText}\nรวม ${formatMoney(total)}`);
+        showToast('คัดลอกรายการแล้ว กรุณาส่งให้ร้านค้า');
+      }
+    }
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+      }catch(e){
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      }
+    }
+
+    function openOrders(){
+      showToast('คำสั่งซื้อจะเชื่อมกับ Google Sheet ตามระบบเดิม');
+    }
+
+    function openDrawer(){
+      document.getElementById('drawer').classList.add('show');
+    }
+
+    function hideDrawer(){
+      document.getElementById('drawer').classList.remove('show');
+    }
+
+    function closeDrawer(e){
+      if(e.target.id === 'drawer') hideDrawer();
+    }
+
+    function scrollToProducts(){
+      document.getElementById('productsSection').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    function scrollTopPage(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    function focusSearch(){
+      document.getElementById('searchInput').focus();
+    }
+
+    function setLoading(){
+      document.getElementById('products').innerHTML = '';
+      document.getElementById('status').innerHTML = `
+        <div class="loading-grid">
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+        </div>
       `;
-
-    }catch(e){
-      $('modalBody').innerHTML = `
-        <div class="notice warn">${escapeHtml(e.message)}</div>
-        <button class="bigBtn light" onclick="openReceive()">กลับ</button>
-      `;
-    }
-  }
-
-  function copyAllItems(){
-    const text = Array.from(document.querySelectorAll('.codeBox'))
-      .map(x => x.textContent.trim())
-      .filter(Boolean)
-      .join('\n\n');
-
-    copyText(text);
-  }
-
-  function copyFromBox(id){
-    copyText($(id).textContent);
-  }
-
-  function copyText(text){
-    text = String(text || '').trim();
-
-    if (!text){
-      toast('ไม่มีข้อมูลให้คัดลอก');
-      return;
     }
 
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(() => toast('คัดลอกแล้ว'));
-      return;
+    function clearStatus(){
+      document.getElementById('status').innerHTML = '';
     }
 
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    ta.remove();
+    function showToast(msg){
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+    }
 
-    toast('คัดลอกแล้ว');
-  }
+    function formatMoney(n){
+      return '฿' + Number(n || 0).toLocaleString('th-TH');
+    }
 
-  function openModal(title,html){
-    $('modalTitle').textContent = title;
-    $('modalBody').innerHTML = html;
-    $('modal').classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
+    function escapeHtml(str){
+      return String(str).replace(/[&<>"']/g, m => ({
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#039;'
+      }[m]));
+    }
 
-  function closeModal(){
-    $('modal').classList.remove('show');
-    document.body.style.overflow = '';
-  }
+    function escapeAttr(str){
+      return escapeHtml(str).replace(/"/g,'&quot;');
+    }
 
-  function backdropClose(e){
-    if (e.target.id === 'modal') closeModal();
-  }
-
-  function loadingHtml(text){
-    return `
-      <div class="loading">
-        <div class="spinner"></div>
-        ${escapeHtml(text || 'กำลังโหลด...')}
-      </div>
-    `;
-  }
-
-  function toast(msg){
-    const el = $('toast');
-    el.textContent = msg;
-    el.classList.add('show');
-
-    clearTimeout(window.__toastTimer);
-    window.__toastTimer = setTimeout(() => el.classList.remove('show'),1700);
-  }
-
-  function escapeHtml(s){
-    return String(s ?? '').replace(/[&<>"']/g,m => ({
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#39;'
-    }[m]));
-  }
-
-  function escapeAttr(s){
-    return escapeHtml(s).replace(/`/g,'&#96;');
-  }
-
-  document.addEventListener('keydown',e => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  loadCatalog();
-</script>
+    function escapeJs(str){
+      return String(str).replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    }
+  </script>
 </body>
 </html>
